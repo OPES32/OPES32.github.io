@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VITIUM — 七宗罪 · 欲望解剖图谱</title>
+  <meta name="description" content="VITIUM 是一部关于七宗罪的数字展览：七个房间、七件欲望仪器，以及一场只在你浏览器里发生的告解。An atlas of the seven appetites.">
+  <meta name="theme-color" content="#e8e2d5">
+  <link rel="canonical" href="https://opes32.github.io/vitium/">
+  <meta property="og:url" content="https://opes32.github.io/vitium/">
+  <meta property="og:title" content="VITIUM — A Field Guide to the Seven Appetites">
+  <meta property="og:description" content="Seven rooms. Seven apparatuses. One mirror. 七宗罪不是审判，而是欲望在无人注视时显出的形状。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://opes32.github.io/vitium/assets/img/vitium-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="VITIUM cover — PECCATA, seven studies in wanting, with the wheel of appetites">
+  <meta property="og:site_name" content="VITIUM">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VITIUM — A Field Guide to the Seven Appetites">
+  <meta name="twitter:description" content="Seven rooms. Seven apparatuses. One mirror. 七宗罪 · 欲望解剖图谱。">
+  <meta name="twitter:image" content="https://opes32.github.io/vitium/assets/img/vitium-cover.png">
+  <meta name="color-scheme" content="light">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/instrument-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo-black-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到展览 / Skip to exhibition</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true">
+    <span class="cursor__ring"></span>
+    <span class="cursor__dot"></span>
+    <span class="cursor__label"></span>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#top" aria-label="VITIUM，回到顶部">
+      <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M20 1.5 23.8 14l12.7-4.7-8 10.4L39 26.5l-13.3.2L28 39.4 20 29.7l-8 9.7 2.3-12.7L1 26.5l10.5-6.8-8-10.4L16.2 14Z"/>
+      </svg>
+      <span class="brand__word">VITIUM</span>
+    </a>
+    <p class="topbar__descriptor">A FIELD GUIDE TO THE SEVEN APPETITES <span>欲望解剖图谱</span></p>
+    <div class="topbar__actions">
+      <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false">
+        <span class="sound-toggle__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="sound-toggle__text">SOUND OFF</span>
+        <span class="sr-only">切换环境声</span>
+      </button>
+      <button class="index-open" id="index-open" type="button" aria-haspopup="dialog" aria-controls="index-dialog">
+        <span>INDEX</span>
+        <span class="index-open__mark" aria-hidden="true">✳</span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="chapter-rail" id="chapter-rail" aria-label="七宗罪章节">
+    <a href="#pride" class="rail-link" data-rail="pride" style="--rail-color:#1f3fff" title="I · Pride / 傲慢">
+      <span class="rail-link__num">I</span><span class="rail-link__line"></span><span class="rail-link__name">Pride</span>
+    </a>
+    <a href="#greed" class="rail-link" data-rail="greed" style="--rail-color:#c8a24a" title="II · Greed / 贪婪">
+      <span class="rail-link__num">II</span><span class="rail-link__line"></span><span class="rail-link__name">Greed</span>
+    </a>
+    <a href="#lust" class="rail-link" data-rail="lust" style="--rail-color:#e7978a" title="III · Lust / 色欲">
+      <span class="rail-link__num">III</span><span class="rail-link__line"></span><span class="rail-link__name">Lust</span>
+    </a>
+    <a href="#envy" class="rail-link" data-rail="envy" style="--rail-color:#c5da36" title="IV · Envy / 嫉妒">
+      <span class="rail-link__num">IV</span><span class="rail-link__line"></span><span class="rail-link__name">Envy</span>
+    </a>
+    <a href="#gluttony" class="rail-link" data-rail="gluttony" style="--rail-color:#d7472f" title="V · Gluttony / 暴食">
+      <span class="rail-link__num">V</span><span class="rail-link__line"></span><span class="rail-link__name">Gluttony</span>
+    </a>
+    <a href="#wrath" class="rail-link" data-rail="wrath" style="--rail-color:#f1e9da" title="VI · Wrath / 暴怒">
+      <span class="rail-link__num">VI</span><span class="rail-link__line"></span><span class="rail-link__name">Wrath</span>
+    </a>
+    <a href="#sloth" class="rail-link" data-rail="sloth" style="--rail-color:#66736d" title="VII · Sloth / 怠惰">
+      <span class="rail-link__num">VII</span><span class="rail-link__line"></span><span class="rail-link__name">Sloth</span>
+    </a>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <!-- ————————————————————————————————
+         COVER
+    ———————————————————————————————— -->
+    <section class="hero" id="top" data-chapter="hero" data-bg="#e8e2d5" data-fg="#12110e">
+      <div class="hero__meta">
+        <span>MMXXVI · VOL. I</span>
+        <span class="hero__meta-line" aria-hidden="true"></span>
+        <span>SEVEN ROOMS · ONE MIRROR</span>
+      </div>
+
+      <div class="hero__stage">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span> A DIGITAL EXHIBITION IN SEVEN PARTS</p>
+
+          <div class="hero__title-wrap">
+            <h1 class="hero__title" data-text="PECCATA">PECCATA</h1>
+            <div class="hero__title-sub">
+              <span class="hero__title-cn">七宗罪</span>
+              <span class="hero__title-en">seven studies in wanting</span>
+              <span class="hero__title-index">00—07</span>
+            </div>
+          </div>
+
+          <div class="hero__intro">
+            <p class="hero__deck">The seven are not monsters. They are the shapes our wanting takes when nobody is watching.</p>
+            <p class="hero__deck-cn">七宗罪不是审判。它们是欲望在无人注视时，显出的形状。</p>
+          </div>
+
+          <a class="enter-link" href="#pride">
+            <span class="enter-link__rule" aria-hidden="true"></span>
+            <span class="enter-link__text">OPEN THE ATLAS<span>打开罪典</span></span>
+            <span class="enter-link__arrow" aria-hidden="true">↘</span>
+          </a>
+        </div>
+
+        <div class="hero__wheel-column">
+          <div class="wheel-topline">
+            <span>THE WHEEL OF APPETITES</span>
+            <span>07 SPECIMENS</span>
+          </div>
+
+          <div class="wheel-stage" id="wheel-stage">
+            <svg class="wheel" viewBox="-30 -30 780 780" role="group" aria-label="七宗罪互动轮盘。使用 Tab 键选择，按 Enter 进入对应章节。">
+              <defs>
+                <path id="wheel-orbit" d="M 360,360 m -331,0 a 331,331 0 1,1 662,0 a 331,331 0 1,1 -662,0"/>
+                <radialGradient id="wheel-iris" cx="42%" cy="38%" r="62%">
+                  <stop offset="0%" stop-color="#5366ff"/>
+                  <stop offset="58%" stop-color="#1f3fff"/>
+                  <stop offset="100%" stop-color="#0d1b88"/>
+                </radialGradient>
+              </defs>
+
+              <g class="wheel__rotor" aria-hidden="true">
+                <circle class="wheel__ring wheel__ring--dashed" cx="360" cy="360" r="326"/>
+                <text class="wheel__orbit-text">
+                  <textPath href="#wheel-orbit" startOffset="0">AN ATLAS OF THE SEVEN APPETITES · VITIUM · 七宗罪 · </textPath>
+                </text>
+              </g>
+
+              <circle class="wheel__ring wheel__ring--solid" cx="360" cy="360" r="302"/>
+              <circle class="wheel__ring wheel__ring--hair" cx="360" cy="360" r="104"/>
+
+              <g class="wheel__segments">
+                <g class="wheel-seg" data-sin="pride" data-latin="SUPERBIA" data-en="Pride" data-cn="傲慢" tabindex="0" role="button" aria-label="I，Pride，傲慢" style="--seg:#1f3fff">
+                  <path class="wheel-seg__path" d="M243.02 85.92 A298 298 0 0 1 476.98 85.92 L401.61 262.51 A106 106 0 0 0 318.39 262.51 Z"/>
+                  <text class="wheel-seg__num" x="360" y="122">I</text>
+                </g>
+                <g class="wheel-seg" data-sin="greed" data-latin="AVARITIA" data-en="Greed" data-cn="贪婪" tabindex="0" role="button" aria-label="II，Greed，贪婪" style="--seg:#c8a24a">
+                  <path class="wheel-seg__path" d="M501.34 97.65 A298 298 0 0 1 647.22 280.58 L462.17 331.75 A106 106 0 0 0 410.28 266.68 Z"/>
+                  <text class="wheel-seg__num" x="546.08" y="211.61">II</text>
+                </g>
+                <g class="wheel-seg" data-sin="lust" data-latin="LUXURIA" data-en="Lust" data-cn="色欲" tabindex="0" role="button" aria-label="III，Lust，色欲" style="--seg:#e7978a">
+                  <path class="wheel-seg__path" d="M653.24 306.94 A298 298 0 0 1 601.17 535.04 L445.79 422.26 A106 106 0 0 0 464.31 341.12 Z"/>
+                  <text class="wheel-seg__num" x="592.03" y="412.96">III</text>
+                </g>
+                <g class="wheel-seg" data-sin="envy" data-latin="INVIDIA" data-en="Envy" data-cn="嫉妒" tabindex="0" role="button" aria-label="IV，Envy，嫉妒" style="--seg:#c5da36">
+                  <path class="wheel-seg__path" d="M584.32 556.18 A298 298 0 0 1 373.52 657.69 L364.81 465.89 A106 106 0 0 0 439.79 429.78 Z"/>
+                  <text class="wheel-seg__num" x="463.26" y="574.43">IV</text>
+                </g>
+                <g class="wheel-seg" data-sin="gluttony" data-latin="GULA" data-en="Gluttony" data-cn="暴食" tabindex="0" role="button" aria-label="V，Gluttony，暴食" style="--seg:#d7472f">
+                  <path class="wheel-seg__path" d="M346.48 657.69 A298 298 0 0 1 135.68 556.18 L280.21 429.78 A106 106 0 0 0 355.19 465.89 Z"/>
+                  <text class="wheel-seg__num" x="256.74" y="574.43">V</text>
+                </g>
+                <g class="wheel-seg" data-sin="wrath" data-latin="IRA" data-en="Wrath" data-cn="暴怒" tabindex="0" role="button" aria-label="VI，Wrath，暴怒" style="--seg:#e84522">
+                  <path class="wheel-seg__path" d="M118.83 535.04 A298 298 0 0 1 66.76 306.94 L255.69 341.12 A106 106 0 0 0 274.21 422.26 Z"/>
+                  <text class="wheel-seg__num" x="127.97" y="412.96">VI</text>
+                </g>
+                <g class="wheel-seg" data-sin="sloth" data-latin="ACEDIA" data-en="Sloth" data-cn="怠惰" tabindex="0" role="button" aria-label="VII，Sloth，怠惰" style="--seg:#8b9990">
+                  <path class="wheel-seg__path" d="M72.78 280.58 A298 298 0 0 1 218.66 97.65 L309.72 266.68 A106 106 0 0 0 257.83 331.75 Z"/>
+                  <text class="wheel-seg__num" x="173.92" y="211.61">VII</text>
+                </g>
+              </g>
+
+              <g class="wheel__hairlines" aria-hidden="true">
+                <line x1="360" y1="24" x2="360" y2="58"/>                <line x1="696" y1="360" x2="662" y2="360"/>
+                <line x1="360" y1="696" x2="360" y2="662"/>
+                <line x1="24" y1="360" x2="58" y2="360"/>
+                <circle cx="360" cy="24" r="2.2"/>
+                <circle cx="696" cy="360" r="2.2"/>
+                <circle cx="360" cy="696" r="2.2"/>
+                <circle cx="24" cy="360" r="2.2"/>
+              </g>
+
+              <g class="wheel-eye" id="wheel-eye" aria-hidden="true">
+                <g class="wheel-eye__blink">
+                  <ellipse class="wheel-eye__white" cx="360" cy="360" rx="81" ry="42"/>
+                  <g class="wheel-eye__iris">
+                    <circle cx="360" cy="360" r="30" fill="url(#wheel-iris)"/>
+                    <circle cx="360" cy="360" r="16" class="wheel-eye__pupil"/>
+                    <circle cx="371" cy="348" r="4.5" class="wheel-eye__glint"/>
+                  </g>
+                  <path class="wheel-eye__outline" d="M279 360 C304 314 416 314 441 360 C416 406 304 406 279 360Z"/>
+                  <path class="wheel-eye__lash" d="M279 360 260 343M279 360 260 373M441 360 460 343M441 360 460 373"/>
+                </g>
+              </g>
+            </svg>
+
+            <div class="wheel-current" aria-live="polite">
+              <span class="wheel-current__num" id="wheel-current-num">VII</span>
+              <span class="wheel-current__name" id="wheel-current-name">THE SEVEN</span>
+              <span class="wheel-current__cn" id="wheel-current-cn">七</span>
+            </div>
+          </div>
+
+          <div class="wheel-caption">
+            <span>HOVER A SEGMENT / 悬停选择</span>
+            <span>FIG. 00</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="hero-index" aria-label="七宗罪目录">
+        <a class="hero-index__item" href="#pride" data-hero-sin="pride" style="--item-color:#1f3fff">
+          <span class="hero-index__num">I</span>
+          <span class="hero-index__name">Pride</span>
+          <span class="hero-index__cn">傲慢</span>
+          <span class="hero-index__note">the mirror</span>
+        </a>
+        <a class="hero-index__item" href="#greed" data-hero-sin="greed" style="--item-color:#c8a24a">
+          <span class="hero-index__num">II</span>
+          <span class="hero-index__name">Greed</span>
+          <span class="hero-index__cn">贪婪</span>
+          <span class="hero-index__note">the calculation</span>
+        </a>
+        <a class="hero-index__item" href="#lust" data-hero-sin="lust" style="--item-color:#e7978a">
+          <span class="hero-index__num">III</span>
+          <span class="hero-index__name">Lust</span>
+          <span class="hero-index__cn">色欲</span>
+          <span class="hero-index__note">the proximity</span>
+        </a>
+        <a class="hero-index__item" href="#envy" data-hero-sin="envy" style="--item-color:#8b9c1b">
+          <span class="hero-index__num">IV</span>
+          <span class="hero-index__name">Envy</span>
+          <span class="hero-index__cn">嫉妒</span>
+          <span class="hero-index__note">the other</span>
+        </a>
+        <a class="hero-index__item" href="#gluttony" data-hero-sin="gluttony" style="--item-color:#d7472f">
+          <span class="hero-index__num">V</span>
+          <span class="hero-index__name">Gluttony</span>
+          <span class="hero-index__cn">暴食</span>
+          <span class="hero-index__note">the intake</span>
+        </a>
+        <a class="hero-index__item" href="#wrath" data-hero-sin="wrath" style="--item-color:#e84522">
+          <span class="hero-index__num">VI</span>
+          <span class="hero-index__name">Wrath</span>
+          <span class="hero-index__cn">暴怒</span>
+          <span class="hero-index__note">the wound</span>
+        </a>
+        <a class="hero-index__item" href="#sloth" data-hero-sin="sloth" style="--item-color:#66736d">
+          <span class="hero-index__num">VII</span>
+          <span class="hero-index__name">Sloth</span>
+          <span class="hero-index__cn">怠惰</span>
+          <span class="hero-index__note">the pause</span>
+        </a>
+      </nav>
+
+      <div class="hero__foot">
+        <span>NO COOKIES · NO TRACKERS · ONLY APPETITES</span>
+        <span>DESIGNED TO BE READ SLOWLY / 请慢读</span>
+      </div>
+    </section>
+
+    <!-- ————————————————————————————————
+         PROLOGUE
+    ———————————————————————————————— -->
+    <section class="prologue" data-chapter="prologue" data-bg="#12110e" data-fg="#e8e2d5">
+      <div class="prologue__inner">
+        <div class="prologue__meta">
+          <span>PROLOGUE / 序</span>
+          <span>ANATOMY OF A HUNGER</span>
+        </div>
+        <blockquote class="prologue__quote">
+          <p>THE SEVEN ARE NOT MONSTERS.<br>THEY ARE MIRRORS <span>WITH GOOD LIGHTING.</span></p>
+          <footer>七宗罪不是七只怪兽。<br>它们是七面镜子，恰好打着光。</footer>
+        </blockquote>
+        <div class="prologue__note">
+          <p>We call them sins when we mean the appetites that run us. This is not a courtroom. It is a field guide: seven conditions, seven instruments, one human being trying them on.</p>
+          <p>我们把它们叫作罪，往往只是在说那些支配我们的渴望。这里不是法庭，而是一册观察手册：七种状态，七件仪器，以及一个正在试穿它们的人。</p>
+          <span class="prologue__sig" aria-hidden="true">⁂</span>
+        </div>
+      </div>
+      <div class="prologue__ticker" aria-hidden="true">
+        <span>SUPERBIA · AVARITIA · LUXURIA · INVIDIA · GULA · IRA · ACEDIA ·</span>
+        <span>SUPERBIA · AVARITIA · LUXURIA · INVIDIA · GULA · IRA · ACEDIA ·</span>
+      </div>
+    </section>
+
+    <!-- ————————————————————————————————
+         I — PRIDE
+    ———————————————————————————————— -->
+    <section class="chapter chapter--pride" id="pride" data-chapter="pride" data-bg="#e8e2d5" data-fg="#12110e">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">I</span>
+        <h2 class="chapter-head__name">PRIDE <span>傲慢</span></h2>
+        <span class="chapter-head__latin">SUPERBIA</span>
+        <span class="chapter-head__tag">THE SIN OF THE MIRROR<br>镜中之罪</span>
+      </header>
+
+      <div class="pride-layout">
+        <div class="pride-copy">
+          <p class="chapter-statement reveal">THE EYE<br>THAT FEEDS<br>ON BEING<br><span class="accent-blue">SEEN.</span></p>
+          <p class="chapter-lede reveal">傲慢不是大声说话。它是把每一段对话，悄悄转回自己。</p>
+          <div class="prose reveal">
+            <p>Pride believes the self is a gallery with no exit — and every visitor an audience. It is not confidence. It is a need that has learned to wear good clothes.</p>
+            <p>它把自我变成一间没有出口的美术馆，把每个来客都当作观众。傲慢不是自信，而是一种学会了穿好衣服的需要。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 01</span>
+            <p>The opposite of pride is not self-erasure. It is scale.<br>傲慢的反面不是自我抹除，而是尺度。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus pride-apparatus reveal" id="pride-apparatus">
+          <div class="apparatus__bar">
+            <span>APPARATUS I</span>
+            <span>THE MIRROR WITH A PUPIL</span>
+            <span>REGARD: UNVERIFIABLE</span>
+          </div>
+
+          <div class="pride-mirror">
+            <span class="pride-mirror__corner pride-mirror__corner--tl" aria-hidden="true"></span>
+            <span class="pride-mirror__corner pride-mirror__corner--tr" aria-hidden="true"></span>
+            <span class="pride-mirror__corner pride-mirror__corner--bl" aria-hidden="true"></span>
+            <span class="pride-mirror__corner pride-mirror__corner--br" aria-hidden="true"></span>
+
+            <div class="pride-mirror__label">
+              <span>FIG. I</span>
+              <span>THE IDEAL OBSERVER</span>
+            </div>
+
+            <div class="eye-frame">
+              <div class="eye-frame__halo" aria-hidden="true"></div>
+              <svg class="pride-eye" viewBox="0 0 460 260" aria-hidden="true">
+                <g class="pride-eye__blink">
+                  <path class="pride-eye__white" d="M18 130 C98 30 362 30 442 130 C362 230 98 230 18 130Z"/>
+                  <g class="pride-eye__iris">
+                    <circle cx="230" cy="130" r="53" class="pride-eye__iris-disc"/>
+                    <circle cx="230" cy="130" r="40" class="pride-eye__iris-ring"/>
+                    <g class="pride-eye__spokes">
+                      <line x1="230" y1="78" x2="230" y2="94"/>
+                      <line x1="282" y1="130" x2="266" y2="130"/>
+                      <line x1="230" y1="182" x2="230" y2="166"/>
+                      <line x1="178" y1="130" x2="194" y2="130"/>
+                      <line x1="267" y1="93" x2="256" y2="104"/>
+                      <line x1="267" y1="167" x2="256" y2="156"/>
+                      <line x1="193" y1="167" x2="204" y2="156"/>
+                      <line x1="193" y1="93" x2="204" y2="104"/>
+                    </g>
+                    <circle cx="230" cy="130" r="18" class="pride-eye__pupil"/>
+                    <circle cx="243" cy="115" r="5" class="pride-eye__glint"/>
+                  </g>
+                  <path class="pride-eye__outline" d="M18 130 C98 30 362 30 442 130 C362 230 98 230 18 130Z"/>
+                  <path class="pride-eye__crease" d="M36 130 C120 65 340 65 424 130"/>
+                  <path class="pride-eye__lash" d="M18 130 0 111M18 130 0 149M442 130 460 111M442 130 460 149"/>
+                </g>
+              </svg>
+              <button class="eye-hit" type="button" id="pride-blink" aria-label="让眼睛眨眼">
+                <span>BLINK / 眨眼</span>
+              </button>
+            </div>
+
+            <div class="pride-mirror__reflection" aria-hidden="true">
+              <span>LOOK AT ME</span><span>LOOK AT ME</span><span>LOOK AT ME</span>
+            </div>
+
+            <div class="pride-mirror__status">
+              <span>YOU ARE BEING LOOKED AT</span>
+              <span class="live-dot" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>Move to be watched. Click the eye to disappear for a moment.</span>
+            <span id="pride-status" aria-live="polite">移动，被注视。点击眼睛，消失一瞬。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="chapter-next" href="#greed">
+        <span>NEXT / 下一章</span>
+        <span>II · GREED</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         II — GREED
+    ———————————————————————————————— -->
+    <section class="chapter chapter--greed" id="greed" data-chapter="greed" data-bg="#0d0d0b" data-fg="#ede6d8">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">II</span>
+        <h2 class="chapter-head__name">GREED <span>贪婪</span></h2>
+        <span class="chapter-head__latin">AVARITIA</span>
+        <span class="chapter-head__tag">THE SIN OF THE CALCULATION<br>计算之罪</span>
+      </header>
+
+      <div class="greed-layout">
+        <div class="greed-copy">
+          <p class="chapter-statement reveal">ENOUGH<br>IS A MOVING<br><span class="accent-brass">TARGET.</span></p>
+          <p class="chapter-lede reveal">贪婪不是想要东西。它想要的是“再多一点”的那个瞬间。</p>
+          <div class="prose reveal">
+            <p>Greed never arrives. It is the arithmetic of the almost. The thing is only a receipt for the feeling it promised.</p>
+            <p>贪婪从不抵达。它是“差一点”的算术。东西只是收据，证明某种感觉曾经被许诺。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 02</span>
+            <p>A number has no horizon.<br>数字没有地平线。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus greed-apparatus reveal" id="greed-apparatus">
+          <div class="apparatus__bar">
+            <span>APPARATUS II</span>
+            <span>THE ACQUISITION ENGINE</span>
+            <span>OPEN ENDED</span>
+          </div>
+
+          <div class="greed-engine">
+            <div class="greed-counter">
+              <span class="greed-counter__label">TOTAL CLAIMED / 已占有</span>
+              <output class="greed-counter__value" id="greed-count" aria-live="off">0000000</output>
+              <span class="greed-counter__unit">UNITS OF MORE</span>
+            </div>
+
+            <div class="greed-field" id="greed-field" aria-hidden="true"></div>
+
+            <div class="greed-controls">
+              <button class="stamp-button" type="button" id="greed-acquire">
+                <span>ACQUIRE</span><span>获取</span><span aria-hidden="true">＋</span>
+              </button>
+              <p class="greed-message" id="greed-message" aria-live="polite">A modest beginning.</p>
+            </div>
+
+            <span class="greed-watermark" aria-hidden="true">MORE</span>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>Every press claims one more square. The count does not care.</span>
+            <span>每按一次，占领一格。数字并不在意。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="greed-ticker" aria-hidden="true">
+        <span>MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE ·</span>
+        <span>MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE · MORE ·</span>
+      </div>
+
+      <a class="chapter-next" href="#lust">
+        <span>NEXT / 下一章</span>
+        <span>III · LUST</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         III — LUST
+    ———————————————————————————————— -->
+    <section class="chapter chapter--lust" id="lust" data-chapter="lust" data-bg="#351019" data-fg="#f1dcd1">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">III</span>
+        <h2 class="chapter-head__name">LUST <span>色欲</span></h2>
+        <span class="chapter-head__latin">LUXURIA</span>
+        <span class="chapter-head__tag">THE SIN OF PROXIMITY<br>靠近之罪</span>
+      </header>
+
+      <div class="lust-layout">
+        <figure class="apparatus lust-apparatus reveal" id="lust-apparatus">
+          <div class="apparatus__bar">
+            <span>APPARATUS III</span>
+            <span>A MUSCLE THAT LIES</span>
+            <span>PULSE: 00</span>
+          </div>
+
+          <div class="lust-orbit">
+            <div class="lust-halo" aria-hidden="true"></div>
+            <svg class="lust-heart" viewBox="0 0 600 620" aria-hidden="true">
+              <defs>
+                <path id="lust-ring-path" d="M 300,300 m -260,0 a 260,260 0 1,1 520,0 a 260,260 0 1,1 -520,0"/>
+              </defs>
+              <g class="lust-heart__rings">
+                <circle cx="300" cy="300" r="274"/>
+                <circle cx="300" cy="300" r="228"/>
+                <circle cx="300" cy="300" r="182"/>
+              </g>
+              <text class="lust-heart__orbit">
+                <textPath href="#lust-ring-path" startOffset="2%">THE BODY KEEPS ITS OWN TIME · 身体有自己的时间 · THE BODY KEEPS ITS OWN TIME · </textPath>
+              </text>
+              <g class="lust-heart__pulse">
+                <path class="lust-heart__outline" d="M300 512C232 446 119 367 91 283 62 195 122 103 209 99 258 97 291 128 300 170 312 119 352 91 408 99 501 112 538 220 493 306 452 388 362 445 300 512Z"/>
+                <path class="lust-heart__inner" d="M300 170C300 248 300 394 300 512M300 273C258 258 219 272 205 311M300 333C345 314 387 330 402 369M237 150C261 201 291 239 300 273M360 154C338 203 312 238 300 273"/>
+                <path class="lust-heart__vein" d="M300 170C287 132 258 117 228 120M300 170C318 132 348 117 377 125M205 311C177 302 151 311 132 333M402 369C424 354 447 354 465 367"/>
+              </g>
+              <g class="lust-heart__ticks">
+                <line x1="300" y1="8" x2="300" y2="28"/>
+                <line x1="300" y1="612" x2="300" y2="592"/>
+                <line x1="8" y1="300" x2="28" y2="300"/>
+                <line x1="592" y1="300" x2="572" y2="300"/>
+              </g>
+            </svg>
+
+            <span class="lust-word lust-word--one">closer</span>
+            <span class="lust-word lust-word--two">stay</span>
+            <span class="lust-word lust-word--three">again</span>
+
+            <p class="lust-reveal">YOU ARE ALLOWED TO WANT.<br><span>你可以渴望。</span></p>
+          </div>
+
+          <div class="lust-controls">
+            <button class="hold-button" type="button" id="lust-hold" aria-describedby="lust-hint">
+              <span class="hold-button__fill" aria-hidden="true"></span>
+              <span class="hold-button__label">HOLD / 靠近</span>
+            </button>
+            <p class="apparatus__hint" id="lust-hint">Hold to come closer. Release to remember where you are.</p>
+            <p class="apparatus__hint apparatus__hint--cn">按住，靠近。松开，记得你在哪里。</p>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>Desire is not a verdict. It is a temperature.</span>
+            <span id="lust-status" aria-live="polite">欲望不是判决。它是温度。</span>
+          </figcaption>
+        </figure>
+
+        <div class="lust-copy">
+          <p class="chapter-statement reveal">THE BODY<br>SPEAKS<br><span class="accent-rose">FIRST.</span></p>
+          <p class="chapter-lede reveal">欲望总在解释之前抵达。</p>
+          <div class="prose reveal">
+            <p>Lust is not only about bodies. It is the ache to be chosen, to be held briefly inside someone else's attention. A pulse is a poor witness, but an honest one.</p>
+            <p>色欲不只关于身体。它是被选中的渴望，是在另一个人的注意力里短暂停留的渴望。脉搏不是好证人，但它从不说谎。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 03</span>
+            <p>To want is to admit there is room for something else.<br>渴望，就是承认心里还有余地。</p>
+          </aside>
+        </div>
+      </div>
+
+      <a class="chapter-next" href="#envy">
+        <span>NEXT / 下一章</span>
+        <span>IV · ENVY</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         IV — ENVY
+    ———————————————————————————————— -->
+    <section class="chapter chapter--envy" id="envy" data-chapter="envy" data-bg="#c8d936" data-fg="#0d1107">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">IV</span>
+        <h2 class="chapter-head__name">ENVY <span>嫉妒</span></h2>
+        <span class="chapter-head__latin">INVIDIA</span>
+        <span class="chapter-head__tag">THE SIN OF THE OTHER<br>他者之罪</span>
+      </header>
+
+      <div class="envy-layout">
+        <div class="envy-copy">
+          <p class="chapter-statement reveal">SOMEONE<br>ELSE IS LIVING<br>YOUR LIFE<br><span class="accent-ink">BETTER.</span></p>
+          <p class="chapter-lede reveal">嫉妒是把自己的生活，交给别人的坐标。</p>
+          <div class="prose reveal">
+            <p>Envy does not take what you have. It edits the story you tell about it. It is the green arithmetic of a life measured in someone else's light.</p>
+            <p>嫉妒不拿走你拥有的东西。它改写的，是你关于这些东西的故事。它是用别人的光来丈量自己的绿色算术。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 04</span>
+            <p>Comparison is a room with two mirrors and no door.<br>比较是一间有两面镜子、却没有门的房间。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus envy-apparatus reveal">
+          <div class="apparatus__bar">
+            <span>APPARATUS IV</span>
+            <span>THE RELATIVE MIRROR</span>
+            <span>LOSSLESS DUPLICATION</span>
+          </div>
+
+          <div class="envy-field" id="envy-field">
+            <div class="envy-field__grid" aria-hidden="true"></div>
+            <div class="envy-field__left" aria-hidden="true">
+              <span>YOUR</span><span>LIFE</span><small>AS YOU KNOW IT</small>
+            </div>
+            <div class="envy-field__right" aria-hidden="true">
+              <span>ALSO</span><span>YOURS</span><small>AS THEY LIVE IT</small>
+            </div>
+            <div class="envy-seam" aria-hidden="true"></div>
+            <span class="envy-dot envy-dot--self" id="envy-self" aria-hidden="true">YOU</span>
+            <span class="envy-dot envy-dot--other" id="envy-other" aria-hidden="true">YOU, BUT BETTER</span>
+            <div class="envy-field__readout" aria-hidden="true">
+              <span>RELATIVE POSITION</span>
+              <span>00:00:00</span>
+            </div>
+            <div class="envy-blackout" aria-hidden="true">
+              <p>THE OTHER LIFE GOES DARK.<br>YOURS IS STILL HERE.</p>
+              <span>别人的生活暗下去。<br>你的还在这里。</span>
+            </div>
+          </div>
+
+          <div class="envy-controls">
+            <button class="text-button" type="button" id="envy-toggle" aria-pressed="false">LOOK AWAY / 移开目光 <span aria-hidden="true">↘</span></button>
+            <p class="apparatus__hint" id="envy-hint">Move across the field. Watch yourself become a comparison.</p>
+            <p class="apparatus__hint apparatus__hint--cn" id="envy-status" aria-live="polite">移动。看自己如何变成一种比较。</p>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>The mirror is not showing you a better life. It is showing you a cropped one.</span>
+            <span>镜子没有展示更好的人生，它只展示被裁切过的那一块。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="chapter-next" href="#gluttony">
+        <span>NEXT / 下一章</span>
+        <span>V · GLUTTONY</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         V — GLUTTONY
+    ———————————————————————————————— -->
+    <section class="chapter chapter--gluttony" id="gluttony" data-chapter="gluttony" data-bg="#e0b24b" data-fg="#1a120b">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">V</span>
+        <h2 class="chapter-head__name">GLUTTONY <span>暴食</span></h2>
+        <span class="chapter-head__latin">GULA</span>
+        <span class="chapter-head__tag">THE SIN OF THE INTAKE<br>摄入之罪</span>
+      </header>
+
+      <div class="gluttony-layout">
+        <div class="gluttony-copy">
+          <p class="chapter-statement reveal">A MOUTH<br>WITH NO<br><span class="accent-tomato">FLOOR.</span></p>
+          <p class="chapter-lede reveal">暴食不是饥饿，是填满的冲动。</p>
+          <div class="prose reveal">
+            <p>Gluttony is not appetite. It is appetite with a hole underneath. We feed it information, objects, affection, noise — and call the silence afterwards full.</p>
+            <p>暴食不是食欲，是底下有洞的食欲。我们喂它信息、物品、爱意与噪音，然后把之后的沉默叫作“饱”。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 05</span>
+            <p>A mouth will accept almost anything except enough.<br>一张嘴几乎什么都接受，除了“够了”。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus gluttony-apparatus reveal">
+          <div class="apparatus__bar">
+            <span>APPARATUS V</span>
+            <span>THE INTAKE</span>
+            <span>CAPACITY: UNKNOWN</span>
+          </div>
+
+          <div class="mouth-stage">
+            <div class="mouth-tokens" id="mouth-tokens" aria-hidden="true"></div>
+            <svg class="mouth" viewBox="0 0 640 430" aria-hidden="true">
+              <g class="mouth__contours">
+                <ellipse cx="320" cy="218" rx="268" ry="150"/>
+                <ellipse cx="320" cy="218" rx="238" ry="124"/>
+              </g>
+              <path class="mouth__lips" d="M45 218C132 103 508 96 595 218 514 347 129 347 45 218Z"/>
+              <path class="mouth__inside" d="M118 218C214 181 426 181 522 218 425 303 215 303 118 218Z"/>
+              <path class="mouth__tongue" d="M201 256C260 229 380 229 439 256 392 300 248 300 201 256Z"/>
+              <g class="mouth__teeth">
+                <path d="M148 208 174 179 193 215 219 171 238 211 265 167 284 209 312 170 330 209 358 170 377 210 404 169 423 212 451 174 470 216 494 186 502 222Z"/>
+                <path d="M151 228 178 257 197 223 224 263 245 226 271 266 294 229 320 265 345 228 371 265 394 228 420 263 443 224 466 258 490 222 506 227Z"/>
+              </g>
+              <path class="mouth__lip-line" d="M45 218C132 103 508 96 595 218"/>
+              <path class="mouth__lip-line" d="M45 218C129 347 514 347 595 218"/>
+              <g class="mouth__marks">
+                <line x1="25" y1="218" x2="1" y2="218"/>
+                <line x1="615" y1="218" x2="639" y2="218"/>
+                <line x1="320" y1="0" x2="320" y2="42"/>
+                <line x1="320" y1="430" x2="320" y2="394"/>
+              </g>
+              <text class="mouth__label" x="320" y="405">INTAKE / 摄入</text>
+            </svg>
+
+            <div class="mouth-readout">
+              <span>SWALLOWED</span>
+              <output id="mouth-count">00</output>
+            </div>
+          </div>
+
+          <form class="feed-form" id="feed-form" novalidate>
+            <label class="feed-form__label" for="feed-input">ONE MORE THING / 再来一口</label>
+            <div class="feed-form__row">
+              <input id="feed-input" name="feed" type="text" maxlength="32" autocomplete="off" enterkeyhint="send" placeholder="a little more attention" aria-describedby="feed-status">
+              <button class="feed-button" type="submit"><span>FEED / 喂入</span><span aria-hidden="true">↘</span></button>
+            </div>
+            <p class="feed-form__status" id="feed-status" aria-live="polite">Type something you keep consuming. It will not be saved.</p>
+          </form>
+
+          <figcaption class="apparatus__caption">
+            <span>Nothing entered here leaves your browser.</span>
+            <span>你在这里喂下的一切，都留在这个浏览器里。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="chapter-next" href="#wrath">
+        <span>NEXT / 下一章</span>
+        <span>VI · WRATH</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         VI — WRATH
+    ———————————————————————————————— -->
+    <section class="chapter chapter--wrath" id="wrath" data-chapter="wrath" data-bg="#dd3f22" data-fg="#10100e">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">VI</span>
+        <h2 class="chapter-head__name">WRATH <span>暴怒</span></h2>
+        <span class="chapter-head__latin">IRA</span>
+        <span class="chapter-head__tag">THE SIN OF THE WOUND<br>伤口之罪</span>
+      </header>
+
+      <div class="wrath-layout">
+        <div class="wrath-copy">
+          <p class="chapter-statement reveal">HURT<br>IS A<br><span class="accent-paper">DIRECTION.</span></p>
+          <p class="chapter-lede reveal">暴怒是疼痛穿上了盔甲。</p>
+          <div class="prose reveal">
+            <p>Wrath is pain in armor. It needs a target because pain without one is just weather inside the body. Sometimes it protects. Sometimes it only makes more weather.</p>
+            <p>暴怒是穿上盔甲的疼痛。它需要一个目标，因为没有目标的疼痛只能在身体里变成天气。它有时保护你，有时只是制造更多天气。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 06</span>
+            <p>Heat always looks for a direction.<br>热度总要找一个方向。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus wrath-apparatus reveal" id="wrath-apparatus">
+          <div class="apparatus__bar">
+            <span>APPARATUS VI</span>
+            <span>THE PRESSURE VALVE</span>
+            <span>FAULT LINE: ACTIVE</span>
+          </div>
+
+          <div class="wrath-stage" id="wrath-stage">
+            <div class="wrath-stage__target" aria-hidden="true">
+              <span class="target-ring target-ring--1"></span>
+              <span class="target-ring target-ring--2"></span>
+              <span class="target-ring target-ring--3"></span>
+              <span class="target-cross target-cross--h"></span>
+              <span class="target-cross target-cross--v"></span>
+            </div>
+            <div class="wrath-stage__word" aria-hidden="true"><span>KEEP</span><span>IT</span><span>TOGETHER</span></div>
+            <svg class="wrath-cracks" viewBox="0 0 700 560" aria-hidden="true">
+              <path d="M348 0 332 121 361 177 317 258 349 323 300 430 322 560"/>
+              <path d="M349 323 435 300 484 337 546 315"/>
+              <path d="M349 323 270 311 229 343 162 326 108 351"/>
+              <path d="M361 177 419 151 445 103 520 86"/>
+              <path d="M317 258 257 217 205 228 148 190"/>
+              <path d="M300 430 237 453 218 508 157 530"/>
+            </svg>
+            <span class="wrath-stage__stamp" aria-hidden="true">PRESSURE</span>
+          </div>
+
+          <div class="wrath-controls">
+            <div class="pressure" role="progressbar" aria-label="压力" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pressure-meter">
+              <span class="pressure__fill" aria-hidden="true"></span>
+            </div>
+            <div class="wrath-buttons">
+              <button class="hold-button hold-button--dark" type="button" id="wrath-hold" aria-describedby="wrath-hint">
+                <span class="hold-button__fill" aria-hidden="true"></span>
+                <span class="hold-button__label">HOLD / 撑住</span>
+              </button>
+              <button class="text-button" type="button" id="wrath-reset" hidden>RESET / 重来 <span aria-hidden="true">↺</span></button>
+            </div>
+            <p class="apparatus__hint" id="wrath-hint">Press and hold. Keep it together until you can't.</p>
+            <p class="apparatus__hint apparatus__hint--cn" id="wrath-status" aria-live="polite">按住。试着撑住，直到撑不住。</p>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>Nothing broke that was not already cracked.</span>
+            <span>碎掉的，原本就已经有裂缝。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="chapter-next" href="#sloth">
+        <span>NEXT / 下一章</span>
+        <span>VII · SLOTH</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         VII — SLOTH
+    ———————————————————————————————— -->
+    <section class="chapter chapter--sloth" id="sloth" data-chapter="sloth" data-bg="#cdd3cc" data-fg="#2c332f">
+      <header class="chapter-head">
+        <span class="chapter-head__roman">VII</span>
+        <h2 class="chapter-head__name">SLOTH <span>怠惰</span></h2>
+        <span class="chapter-head__latin">ACEDIA</span>
+        <span class="chapter-head__tag">THE SIN OF THE PAUSE<br>停顿之罪</span>
+      </header>
+
+      <div class="sloth-layout">
+        <div class="sloth-copy">
+          <p class="chapter-statement reveal">THE WORLD<br>CAN <span class="accent-moss">WAIT.</span></p>
+          <p class="chapter-lede reveal">怠惰有时不是懒，是一场安静的罢工。</p>
+          <div class="prose reveal">
+            <p>Sloth is not always laziness. Sometimes it is a strike against a world in which everything must be useful. To pause is to let the soul catch up with the body.</p>
+            <p>怠惰不总是懒惰。有时它是对“一切必须有用”的世界的罢工。停下来，是让灵魂追上身体。</p>
+          </div>
+          <aside class="margin-note reveal">
+            <span>NOTE 07</span>
+            <p>The clock is not a moral instrument.<br>时钟不是道德仪器。</p>
+          </aside>
+        </div>
+
+        <figure class="apparatus sloth-apparatus reveal" id="sloth-apparatus">
+          <div class="apparatus__bar">
+            <span>APPARATUS VII</span>
+            <span>THE STILLNESS CLOCK</span>
+            <span>NO PRODUCTIVITY INTENDED</span>
+          </div>
+
+          <div class="sloth-stage">
+            <div class="sloth-dial" aria-hidden="true">
+              <span class="sloth-dial__ring sloth-dial__ring--outer"></span>
+              <span class="sloth-dial__ring sloth-dial__ring--inner"></span>
+              <span class="sloth-dial__tick sloth-dial__tick--1"></span>
+              <span class="sloth-dial__tick sloth-dial__tick--2"></span>
+              <span class="sloth-dial__tick sloth-dial__tick--3"></span>
+              <span class="sloth-dial__tick sloth-dial__tick--4"></span>
+              <span class="sloth-dial__mark">Z</span>
+            </div>
+
+            <div class="sloth-clock">
+              <span class="sloth-clock__label">NON-PRODUCTIVE TIME / 无用时间</span>
+              <output class="sloth-clock__time" id="sloth-time">00:00</output>
+              <p class="sloth-clock__note" id="sloth-note" aria-live="polite">Nothing is being measured except time you are allowed to have.</p>
+              <button class="sloth-button" type="button" id="sloth-button" aria-pressed="false">
+                <span>BEGIN DOING NOTHING</span><span>开始什么也不做</span>
+              </button>
+            </div>
+          </div>
+
+          <figcaption class="apparatus__caption">
+            <span>This room has no finish line.</span>
+            <span>这个房间没有终点线。</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <a class="chapter-next" href="#confession">
+        <span>NEXT / 下一章</span>
+        <span>THE CONFESSIONAL</span>
+        <span class="chapter-next__arrow" aria-hidden="true">↘</span>
+      </a>
+    </section>
+
+    <!-- ————————————————————————————————
+         VIII — CONFESSIONAL
+    ———————————————————————————————— -->
+    <section class="confession" id="confession" data-chapter="confession" data-bg="#0b0b09" data-fg="#e8e2d5">
+      <header class="chapter-head chapter-head--confession">
+        <span class="chapter-head__roman">VIII</span>
+        <h2 class="chapter-head__name">THE CONFESSIONAL <span>告解室</span></h2>
+        <span class="chapter-head__latin">PECCAVIMUS</span>
+        <span class="chapter-head__tag">THE ROOM AFTER THE ROOMS<br>所有房间之后</span>
+      </header>
+
+      <div class="confession-layout">
+        <div class="confession-intro">
+          <p class="chapter-statement confession-statement reveal">NOBODY<br>GETS OUT<br><span class="accent-ember">CLEAN.</span></p>
+          <p class="chapter-lede reveal">不是因为你肮脏，是因为你活着。</p>
+          <div class="prose reveal">
+            <p>Not because you are guilty — because you are alive. The seven are not a verdict. They are a map of the places you have already been. You don't have to choose one; you only have to admit they all know you.</p>
+            <p>不是因为你肮脏，而是因为你活着。七宗罪不是判决，而是一张你已经走过的地方的地图。你不必从中挑选一个身份；你只需要承认，它们都认识你。</p>
+          </div>
+
+          <div class="confession-instruction reveal">
+            <span class="confession-instruction__num">00</span>
+            <p>Name a hunger. Write one true sentence. Leave it here.<br>说出一种饥饿，写下一句真话，把它留在这里。</p>
+          </div>
+        </div>
+
+        <div class="confession-card reveal" id="confession-card">
+          <div class="seal" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="55"/>
+              <circle cx="60" cy="60" r="47" stroke-dasharray="2 5"/>
+              <path d="M60 16 66 50 100 42 74 61 100 80 66 70 60 104 54 70 20 80 46 61 20 42 54 50Z"/>
+            </svg>
+          </div>
+
+          <div class="confession-card__topline">
+            <span>FORM VIII</span>
+            <span>PRIVATE / 私密</span>
+          </div>
+
+          <div class="confession-form-wrap" id="confession-form-wrap">
+            <h3 class="confession-card__title">LEAVE A CONFESSION<br><span>留下你的告解</span></h3>
+            <p class="confession-card__note">This page does not send or store what you write. It forgets.</p>
+
+            <form class="confession-form" id="confession-form" novalidate autocomplete="off">
+              <fieldset class="sin-picker">
+                <legend>CHOOSE A HUNGER / 选择一种饥饿</legend>
+                <div class="sin-picker__grid">
+                  <label><input type="radio" name="sin" value="pride"><span><b>I</b> PRIDE</span></label>
+                  <label><input type="radio" name="sin" value="greed"><span><b>II</b> GREED</span></label>
+                  <label><input type="radio" name="sin" value="lust"><span><b>III</b> LUST</span></label>
+                  <label><input type="radio" name="sin" value="envy"><span><b>IV</b> ENVY</span></label>
+                  <label><input type="radio" name="sin" value="gluttony"><span><b>V</b> GLUTTONY</span></label>
+                  <label><input type="radio" name="sin" value="wrath"><span><b>VI</b> WRATH</span></label>
+                  <label><input type="radio" name="sin" value="sloth"><span><b>VII</b> SLOTH</span></label>
+                  <span class="sin-picker__all" aria-hidden="true">ALL SEVEN / 全部</span>
+                </div>
+              </fieldset>
+
+              <div class="confession-field">
+                <label for="confession-text">THE SENTENCE / 那句话</label>
+                <textarea id="confession-text" name="confession" rows="3" maxlength="280" placeholder="The thing I don't say out loud is…" aria-describedby="confession-help" autocomplete="off" spellcheck="false"></textarea>
+                <div class="confession-meta">
+                  <span id="confession-help">Max 280 characters · 最多 280 字</span>
+                  <span><output id="confession-count">0</output>/280</span>
+                </div>
+              </div>
+
+              <p class="form-error" id="confession-error" role="alert"></p>
+
+              <button class="burn-button" type="submit" id="confession-submit">
+                <span>BURN IT / 烧掉它</span>
+                <span class="burn-button__mark" aria-hidden="true">✳</span>
+              </button>
+            </form>
+          </div>
+
+          <div class="penance" id="penance" hidden>
+            <span class="penance__eyebrow">A SMALL PENANCE / 一项微小苦修</span>
+            <p class="penance__sin" id="penance-sin">PRIDE</p>
+            <p class="penance__text" id="penance-text"></p>
+            <p class="penance__cn" id="penance-cn"></p>
+            <div class="penance__actions">
+              <button class="text-button" type="button" id="confession-again">WRITE ANOTHER / 再写一则 <span aria-hidden="true">↺</span></button>
+              <span class="penance__forget">Nothing was saved. / 什么都没有留下。</span>
+            </div>
+          </div>
+
+          <div class="confession-card__foot">
+            <span>NO SERVER · NO STORAGE · NO WITNESS</span>
+            <span>THE ARCHIVE FORGETS</span>
+          </div>
+        </div>
+      </div>
+
+      <footer class="colophon">
+        <div class="colophon__headline">
+          <span>END OF THE ATLAS</span>
+          <span>欲望图谱 · 终</span>
+        </div>
+        <div class="colophon__wordmark" aria-hidden="true">VITIUM</div>
+        <div class="colophon__grid">
+          <div class="colophon__cell">
+            <span>WHAT THIS IS</span>
+            <p>A single-page exhibition about the appetites that organise us. Written, designed and built as one continuous object.</p>
+          </div>
+          <div class="colophon__cell">
+            <span>WHAT IT IS MADE OF</span>
+            <p>Type, light, CSS, inline SVG and a little synthesized room tone. No photography. No trackers. No cookies.</p>
+          </div>
+          <div class="colophon__cell">
+            <span>TYPE</span>
+            <p>Instrument Serif · Archivo Black · DM Mono · Noto Serif SC</p>
+          </div>
+          <div class="colophon__cell">
+            <span>THE SEVEN</span>
+            <p>Pride, Greed, Lust, Envy, Gluttony, Wrath, Sloth.<br>傲慢 · 贪婪 · 色欲 · 嫉妒 · 暴食 · 暴怒 · 怠惰</p>
+          </div>
+        </div>
+        <div class="colophon__bottom">
+          <span>MMXXVI / VITIUM</span>
+          <span>NO COOKIES. NO TRACKING. ONLY APPETITES.</span>
+          <button class="text-button text-button--light" type="button" id="sound-toggle-footer">SOUND OFF / 环境声</button>
+          <a href="#top">BACK TO TOP / 回到顶部 <span aria-hidden="true">↑</span></a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <dialog class="index-dialog" id="index-dialog" aria-labelledby="index-title">
+    <div class="index-dialog__frame">
+      <header class="index-dialog__head">
+        <a class="index-dialog__brand" href="#top" aria-label="VITIUM，回到顶部">VITIUM</a>
+        <h2 class="index-dialog__title" id="index-title">INDEX OF APPETITES <span>欲望目录</span></h2>
+        <button class="index-close" id="index-close" type="button">CLOSE <span aria-hidden="true">×</span></button>
+      </header>
+
+      <nav class="index-list" aria-label="展览目录">
+        <a class="index-row" href="#pride" style="--row-color:#1f3fff">
+          <span class="index-row__num">I</span>
+          <span class="index-row__name">Pride</span>
+          <span class="index-row__cn">傲慢</span>
+          <span class="index-row__note">the mirror</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#greed" style="--row-color:#c8a24a">
+          <span class="index-row__num">II</span>
+          <span class="index-row__name">Greed</span>
+          <span class="index-row__cn">贪婪</span>
+          <span class="index-row__note">the calculation</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#lust" style="--row-color:#e7978a">
+          <span class="index-row__num">III</span>
+          <span class="index-row__name">Lust</span>
+          <span class="index-row__cn">色欲</span>
+          <span class="index-row__note">the proximity</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#envy" style="--row-color:#c8d936">
+          <span class="index-row__num">IV</span>
+          <span class="index-row__name">Envy</span>
+          <span class="index-row__cn">嫉妒</span>
+          <span class="index-row__note">the other</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#gluttony" style="--row-color:#d7472f">
+          <span class="index-row__num">V</span>
+          <span class="index-row__name">Gluttony</span>
+          <span class="index-row__cn">暴食</span>
+          <span class="index-row__note">the intake</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#wrath" style="--row-color:#e84522">
+          <span class="index-row__num">VI</span>
+          <span class="index-row__name">Wrath</span>
+          <span class="index-row__cn">暴怒</span>
+          <span class="index-row__note">the wound</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row" href="#sloth" style="--row-color:#9eaaa2">
+          <span class="index-row__num">VII</span>
+          <span class="index-row__name">Sloth</span>
+          <span class="index-row__cn">怠惰</span>
+          <span class="index-row__note">the pause</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+        <a class="index-row index-row--confession" href="#confession" style="--row-color:#d7472f">
+          <span class="index-row__num">VIII</span>
+          <span class="index-row__name">Confessional</span>
+          <span class="index-row__cn">告解室</span>
+          <span class="index-row__note">the room after</span>
+          <span class="index-row__arrow" aria-hidden="true">↘</span>
+        </a>
+      </nav>
+
+      <footer class="index-dialog__foot">
+        <p>Use the wheel, the rail, or this index. The rooms are always open.</p>
+        <p>没有服务器，没有统计，没有偷偷看着你的眼睛。除了那些你已经带来的。</p>
+        <span>MMXXVI</span>
+      </footer>
+    </div>
+  </dialog>
+
+  <noscript>
+    <div class="noscript-note">互动部件需要 JavaScript。展览的文字与图像仍可阅读。 / Interactive apparatuses need JavaScript; the catalogue remains readable.</div>
+  </noscript>
+</body>
+</html>

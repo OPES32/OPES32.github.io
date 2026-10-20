@@ -1,0 +1,14 @@
+{
+  "name": "vitium",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "VITIUM — an interactive field guide to the seven appetites",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
