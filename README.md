@@ -3,8 +3,8 @@
 > 把 2021—2026 六届 VALORANT 全球冠军赛主题曲，调成同一个频率。
 > A fan-made listening instrument built around the official VCT spark.
 
-**在线地址：** <https://2211825733p-debug.github.io/vct-frequency/>  
-**源码仓库：** <https://github.com/2211825733p-debug/vct-frequency>
+**在线地址：** <https://opes32.github.io/>  
+**源码仓库：** <https://github.com/OPES32/OPES32.github.io>
 
 这不是一个「Hero + 卡片」式的音乐专题页，而是一台被拆开摆在桌面上的 VCT 广播仪器。开场点击接通信号后，2026 上海的主题曲《炽日将烬》立即开始播放；之后每一次换台，都会同时换掉颜色、环境、粒子运动、字号节奏和整份曲目档案。
 
@@ -160,8 +160,8 @@ vct-frequency/
 
 当前线上版本托管在 **GitHub Pages**：
 
-- 公开仓库：<https://github.com/2211825733p-debug/vct-frequency>
-- 线上地址：<https://2211825733p-debug.github.io/vct-frequency/>
+- 公开仓库：<https://github.com/OPES32/OPES32.github.io>
+- 线上地址：<https://opes32.github.io/>
 - 发布方式：`main` 分支根目录静态发布，已启用 `.nojekyll`
 - 更新方式：提交并推送到 `main`，Pages 会自动重新构建
 - 静态站点不依赖 `server.mjs`；这个 Node 文件只用于本地预览

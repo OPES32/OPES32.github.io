@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://2211825733p-debug.github.io/vct-frequency/sitemap.xml
+Sitemap: https://opes32.github.io/sitemap.xml
