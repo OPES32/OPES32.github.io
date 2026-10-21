@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>VCT / THE CHAMPIONS FREQUENCY</title>
-  <meta name="description" content="把 2021—2026 六届 VALORANT 全球冠军赛主题曲，调成同一个频率。一台可以听的 VCT 声音档案。">
+  <meta name="description" content="把 2021—2026 六届 VALORANT 全球冠军赛主题曲，调成同一个频率。六首歌，六个现场场景：猩红圣殿、焚城、断时、镜厅、弹时、日蚀。">
   <meta name="theme-color" content="#080604">
   <link rel="canonical" href="https://opes32.github.io/">
   <meta property="og:url" content="https://opes32.github.io/">
   <meta property="og:site_name" content="VCT / THE CHAMPIONS FREQUENCY">
   <meta property="og:title" content="VCT / THE CHAMPIONS FREQUENCY">
-  <meta property="og:description" content="Six anthems. Six cities. One emblem. 2021—2026 VALORANT Champions Tour anthem archive.">
+  <meta property="og:description" content="Six anthems. Six cities. Six live scenes. One emblem. 2021—2026 VALORANT Champions Tour, staged.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://opes32.github.io/assets/img/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
   <meta property="og:image:alt" content="VCT / THE CHAMPIONS FREQUENCY — a golden VCT spark over an amber eclipse.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VCT / THE CHAMPIONS FREQUENCY">
-  <meta name="twitter:description" content="Six anthems. Six cities. One emblem.">
+  <meta name="twitter:description" content="Six anthems. Six cities. Six live scenes. One emblem.">
   <meta name="twitter:image" content="https://opes32.github.io/assets/img/og-cover.jpg">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
@@ -56,7 +56,7 @@
           <span class="gate__title-big">CHAMPIONS</span>
           <span class="gate__title-outline">FREQUENCY</span>
         </h1>
-        <p class="gate__lede">把六年的冠军赛，调成同一个频率。<br>这不是一张播放列表，是一台需要被启动的仪器。</p>
+        <p class="gate__lede">把六年的冠军赛，调成同一个频率。<br>六首歌，六个可切换的现场；这不是播放列表，是一台需要被启动的机器。</p>
 
         <ol class="gate__years" aria-label="六届全球冠军赛">
           <li><span>2021</span><span>DIE FOR YOU</span><span>BERLIN</span></li>
@@ -140,7 +140,7 @@
         <span class="brand-lockup__sub">ANTHEM<br>ARCHIVE</span>
       </div>
 
-      <p class="topbar__descriptor">VALORANT CHAMPIONS TOUR <span>/</span> OFFICIAL ANTHEM ARCHIVE <span>/</span> 2021—2026</p>
+      <p class="topbar__descriptor">VALORANT CHAMPIONS TOUR <span>/</span> LIVE SCENE ARCHIVE <span>/</span> 2021—2026</p>
 
       <div class="topbar__right">
         <p class="topbar__clock" id="shanghaiClock" aria-label="上海时间">SHANGHAI / --:--:--</p>
@@ -164,7 +164,7 @@
         <footer class="index__foot">
           <div class="index__mark" aria-hidden="true"><span class="spark spark--micro"></span></div>
           <p>CHAMPIONS TOUR<br>2021—2026</p>
-          <p class="index__note">30-second official previews.<br>Select a year to retune.</p>
+          <p class="index__note">30-second official previews.<br>Select a year to enter the scene.</p>
         </footer>
       </aside>
 
@@ -178,7 +178,7 @@
 
         <div class="stage__readout">
           <p><span class="blink" aria-hidden="true"></span> NOW TRANSMITTING</p>
-          <p id="stageIssue">ISSUE 06 / SHANGHAI</p>
+          <p id="stageIssue">SCENE 06 / SHANGHAI</p>
         </div>
 
         <span class="stage__year" id="stageYear" aria-hidden="true">2026</span>
@@ -212,6 +212,13 @@
         </div>
 
         <div class="stage__copy">
+          <p class="stage__scene">
+            <span class="stage__scene-index" id="stageSceneNo">SCENE 06</span>
+            <span class="stage__scene-divider" aria-hidden="true"></span>
+            <strong class="stage__scene-name" id="stageSceneName">TOTAL ECLIPSE</strong>
+            <span class="stage__scene-zh" id="stageSceneZh">日蚀</span>
+          </p>
+
           <p class="stage__eyebrow">
             <span class="stage__eyebrow-main" id="stageCity">SHANGHAI</span>
             <span class="slash" aria-hidden="true">/</span>
@@ -238,6 +245,22 @@
           <span>CLICK EMBLEM TO PAUSE</span>
           <span class="stage__foot-code" id="stageFileCode">TXR_2026_06</span>
         </div>
+
+        <div class="scene-transition" id="sceneTransition" aria-hidden="true">
+          <span class="scene-transition__cutline" aria-hidden="true"></span>
+          <span class="scene-transition__year" id="sceneTransitionYear">2026</span>
+          <div class="scene-transition__copy">
+            <p class="scene-transition__meta">
+              <span id="sceneTransitionIndex">SCENE 06</span>
+              <span aria-hidden="true">/</span>
+              <span id="sceneTransitionCity">SHANGHAI</span>
+            </p>
+            <p class="scene-transition__name" id="sceneTransitionName">TOTAL ECLIPSE</p>
+            <p class="scene-transition__zh" id="sceneTransitionZh">日蚀</p>
+            <p class="scene-transition__line" id="sceneTransitionLine">The sun goes out. The stage does not.</p>
+          </div>
+          <span class="scene-transition__index" id="sceneTransitionNumber" aria-hidden="true">06</span>
+        </div>
       </section>
 
       <aside class="dossier" aria-label="曲目档案">
@@ -251,6 +274,7 @@
             <h2 class="dossier__city" id="dossierCity">SHANGHAI</h2>
             <p class="dossier__city-zh" id="dossierCityZh">上海</p>
             <p class="dossier__coords" id="dossierCoords">31.2304° N / 121.4737° E</p>
+            <p class="dossier__scene" id="dossierScene">SCENE 06 / TOTAL ECLIPSE · 日蚀</p>
           </div>
 
           <p class="dossier__note" id="dossierNote">太阳熄灭了，场馆还亮着。Oli Sykes 和 Courtney LaPlante 把告别唱成万人大合唱，余烬在观众席上方停了很久。</p>

@@ -6,9 +6,11 @@
 **在线地址：** <https://opes32.github.io/>  
 **源码仓库：** <https://github.com/OPES32/OPES32.github.io>
 
-这不是一个「Hero + 卡片」式的音乐专题页，而是一台被拆开摆在桌面上的 VCT 广播仪器。开场点击接通信号后，2026 上海的主题曲《炽日将烬》立即开始播放；之后每一次换台，都会同时换掉颜色、环境、粒子运动、字号节奏和整份曲目档案。
+这不是一个「Hero + 卡片」式的音乐专题页，而是一台被拆开摆在桌面上的 VCT 广播仪器。开场点击接通信号后，2026 上海的主题曲《炽日将烬》立即开始播放；之后每一次换台，都会先切进一块专属的 **SCENE 卡片**，再进入完全不同的现场：颜色、空间、粒子、镜头呼吸、字号节奏和整份曲目档案一起切换。
 
 ![VCT / THE CHAMPIONS FREQUENCY — desktop console](./preview/console-2026.jpg)
+
+![VCT / THE CHAMPIONS FREQUENCY — scene transition](./preview/scene-transition.jpg)
 
 ![VCT / THE CHAMPIONS FREQUENCY — mobile console](./preview/console-mobile-web.jpg)
 
@@ -57,16 +59,18 @@ $env:PORT=4180; node server.mjs
 
 ---
 
-## 六段信号
+## 六段信号 / 六个现场
 
-| 年份 | 城市 | 曲目 | 音乐人 | 视觉系统 |
-| --- | --- | --- | --- | --- |
-| 2021 | 柏林 | DIE FOR YOU | Grabbitz | 红色声呐、尘粒、低频心跳 |
-| 2022 | 伊斯坦布尔 | FIRE AGAIN | Ashnikko | 橙色上升余烬、热浪地平线 |
-| 2023 | 洛杉矶 | TICKING AWAY | Grabbitz & bbno$ | 酸绿钟面、秒针与轨道粒子 |
-| 2024 | 首尔 | SUPERPOWER | KISS OF LIFE & Mark Tuan | 镀铬冷光、斜向光束与碎片 |
-| 2025 | 巴黎 | LAST SHOT | templuv & 347aidan | 钴蓝透视速度线、准星环 |
-| 2026 | 上海 | IF THE SUN BURNS OUT TONIGHT / 炽日将烬 | Grabbitz, Oli Sykes & Courtney LaPlante | 日蚀、余烬、最后一轮日冕 |
+| 年份 | 城市 | 曲目 | 音乐人 | 场景 | 场景构成 |
+| --- | --- | --- | --- | --- | --- |
+| 2021 | 柏林 | DIE FOR YOU | Grabbitz | **RED CHAPEL / 猩红圣殿** | 红色聚光灯、玻璃碎片、心跳声呐、向舞台收束的圣殿地面 |
+| 2022 | 伊斯坦布尔 | FIRE AGAIN | Ashnikko | **PYRE / 焚城** | 中央火柱、底部火墙、上升余烬、跳动的火焰冠 |
+| 2023 | 洛杉矶 | TICKING AWAY | Grabbitz & bbno$ | **TIMEBREAK / 断时** | 旋转钟环、巨型时间码、透视时间网格、故障切片 |
+| 2024 | 首尔 | SUPERPOWER | KISS OF LIFE & Mark Tuan | **CHROME PRISM / 镜厅** | 棱镜面、镀铬碎片、镜面地板、扫过舞台的激光 |
+| 2025 | 巴黎 | LAST SHOT | templuv & 347aidan | **BULLET TIME / 弹时** | 战术网格、持续飞行的曳光、锁定环、HUD 读数 |
+| 2026 | 上海 | IF THE SUN BURNS OUT TONIGHT / 炽日将烬 | Grabbitz, Oli Sykes & Courtney LaPlante | **TOTAL ECLIPSE / 日蚀** | 黑日与日冕、旋转耀斑、落灰、熔岩裂缝、全场闪光 |
+
+每场都由 Canvas 2D 实时生成，没有视频、没有预渲染序列。场景会把音频低频、瞬态和镜头呼吸接进同一个运动系统；切台时出现的 **SCENE 卡片** 是每个现场的入场券。
 
 每段音频来自官方 30 秒试听片段，并循环播放。页面上的波形不是装饰图，是从解码后的音频真实计算出的峰值。
 
@@ -79,14 +83,14 @@ $env:PORT=4180; node server.mjs
 1. **VCT 官方徽记是整台仪器的轴心。**
    作为浏览器里的活体对象，它被切成三块碎片；换台时短暂裂开再合拢，低频驱动它的呼吸，外圈文字环一直缓慢旋转。
 
-2. **六年，不是六次换色。**
-   每个年份有自己的背景场、运动逻辑、材质和文案：2021 的声呐、2023 的钟面、2024 的镀铬、2026 的日蚀都由 Canvas 2D 实时生成，没有使用视频或第三方动画库。
+2. **六年，不是六次换色，是六个现场。**
+   每个年份有自己的空间、材质、运动和叙事：2021 的猩红圣殿、2022 的焚城火柱、2023 的断时钟环、2024 的镜厅棱镜、2025 的弹时曳光、2026 的日蚀塌陷，全部由 Canvas 2D 实时生成，没有视频或第三方动画库。
 
 3. **广播控制台，而不是歌单。**
    左栏是年份索引，中央是舞台与巨型曲名，右栏是「传输档案」，底部是真实的波形播放器。版式按大屏、平板、竖屏手机、横屏手机分别重排，而不是把桌面版简单缩小。
 
-4. **换台即重新调频。**
-   色板、背景场、标题入场、档案数据、波形颜色和音频交叉淡入同时发生；顶部保留一条扫光，把切换做成一次信号扫描。
+4. **换台即换景。**
+   先从左侧斜切入一块全舞台 SCENE 卡片，把年份、场景名、城市和一句现场题记压进画面；卡片退场后，新场景已经就位。色板、背景、镜头呼吸、标题入场、档案数据、波形颜色和音频交叉淡入同步发生，不是一次简单换肤。
 
 5. **可被真正使用的播放器。**
    支持进度拖动、键盘控制、音量、静音、暂停保持位置、播放中切台交叉淡入、加载失败重试。波形、时间和 `aria-valuetext` 同步。
@@ -132,7 +136,7 @@ vct-frequency/
 ├─ js/
 │  ├─ data.js             # 六段信号内容
 │  ├─ audio.js            # Web Audio 加载、交叉淡入、波形、分析器
-│  ├─ visuals.js          # 六种 Canvas 环境场
+│  ├─ visuals.js          # 六个实时现场：圣殿 / 焚城 / 断时 / 镜厅 / 弹时 / 日蚀
 │  └─ app.js              # 状态、播放器 UI、键盘、档案
 ├─ assets/
 │  ├─ audio/              # 官方 30 秒试听
@@ -147,7 +151,7 @@ vct-frequency/
 ## 设计系统
 
 - 方向：**工业粗野 / 广播控制台**
-- 三旋钮：`DESIGN_VARIANCE 8.5` / `MOTION_INTENSITY 6.5` / `VISUAL_DENSITY 5`
+- 三旋钮：`DESIGN_VARIANCE 8.5` / `MOTION_INTENSITY 8.5` / `VISUAL_DENSITY 6`
 - 字体：Anton（展示）、Space Grotesk（正文）、IBM Plex Mono（技术标签）、中文宋体（年份主题词）
 - 色彩：以深墨为底，每年一个信号色；所有组件颜色引用 CSS 变量
 - 动效：只使用 `transform` / `opacity` 做 UI 过渡；背景场由 Canvas 控制；支持 `prefers-reduced-motion`
@@ -172,14 +176,16 @@ vct-frequency/
 
 ## 已验证
 
-在 Chrome 无头浏览器中运行 Playwright 验证：
+在 Chrome 无头浏览器中运行 Playwright 验证，覆盖本地静态服务器与线上 Pages：
 
-- 1440×900、1920×1080、1280×720、1366×768、1024×768、1024×600、768×1024、390×844、320×568、844×390（横屏）无横向溢出
-- 点击入场后 `AudioContext` 进入 running，播放进度推进，`--bass` 电平持续变化（非静音占位）
-- 暂停 / 恢复 / 拖动到 50% / 静音 / 下一首 / 键盘 `1`—`6` / `A` 打开档案均通过
-- 六首音频均成功解码；无页面异常、无失败请求
-- `prefers-reduced-motion` 下关闭空间动效与 Canvas 运动
-- 文档无重复 `id`，无缺少可访问名称的 button
+- 1440×900、1024×600、390×844、844×390（横屏）无横向溢出；移动端保留纵向滚动，播放器固定在安全区域
+- 入场点击后 `AudioContext` 正常启动，播放进度推进，`--bass` 实时变化（非静音占位）
+- 六次换台均触发 SCENE 卡片：编号 `01—06`、场景名、城市和年份与当前曲目一致；卡片退场后新场景、新标题和档案同步到位
+- 六个 Canvas 现场各自运行：RED CHAPEL 的玻璃与声呐、PYRE 的火柱与余烬、TIMEBREAK 的钟环与故障切片、CHROME PRISM 的棱镜与激光、BULLET TIME 的曳光与准星、TOTAL ECLIPSE 的日冕与熔岩裂缝
+- 暂停 / 恢复 / 静音 / 键盘 `1`—`6` / `Space` / `A` 打开档案均通过；暂停时 `--bass` 归零
+- 六首音频均成功解码；无页面异常、无失败请求、无重复 `id`
+- `prefers-reduced-motion` 下 Canvas 渲染为静态帧；连续两次读取 Canvas 像素完全一致
+- 1024×600 的横向压缩档启用了紧凑排版，标题、场景行、题记与播放器均在安全区内
 
 ---
 

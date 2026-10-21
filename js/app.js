@@ -83,6 +83,18 @@ const audioError = $('#audioError');
 const audioRetry = $('#audioRetry');
 const bootError = $('#bootError');
 const liveRegion = $('#liveRegion');
+const sceneTransition = $('#sceneTransition');
+const sceneTransitionIndex = $('#sceneTransitionIndex');
+const sceneTransitionName = $('#sceneTransitionName');
+const sceneTransitionZh = $('#sceneTransitionZh');
+const sceneTransitionCity = $('#sceneTransitionCity');
+const sceneTransitionYear = $('#sceneTransitionYear');
+const sceneTransitionLine = $('#sceneTransitionLine');
+const sceneTransitionNumber = $('#sceneTransitionNumber');
+const stageSceneNo = $('#stageSceneNo');
+const stageSceneName = $('#stageSceneName');
+const stageSceneZh = $('#stageSceneZh');
+const dossierScene = $('#dossierScene');
 
 const laneElements = {
   stage: $('#stage'),
@@ -118,6 +130,8 @@ const field = new SignalField(fieldCanvas, {
 });
 
 let themeColorMeta = null;
+let sceneSlateTimer = 0;
+let sceneSlateDelay = 0;
 
 function getTrack() {
   return TRACKS[state.currentIndex];
@@ -186,7 +200,7 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   if (themeColorMeta) themeColorMeta.setAttribute('content', track.fx.ink);
 
   laneElements.stageYear.textContent = track.year;
-  laneElements.stageIssue.textContent = `ISSUE ${pad(track.index)} / ${track.city}`;
+  laneElements.stageIssue.textContent = `SCENE ${pad(track.index)} / ${track.city}`;
   laneElements.stageCity.textContent = track.city;
   laneElements.stageYearLabel.textContent = track.year;
   laneElements.stageMotif.textContent = `${track.motif} / ${track.motifZh}`;
@@ -194,6 +208,19 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   laneElements.trackMotifZh.textContent = track.titleZh || track.motifZh;
   laneElements.trackTagline.textContent = track.tagline;
   laneElements.trackCredit.textContent = track.credit;
+
+  stageSceneNo.textContent = `SCENE ${pad(track.index)}`;
+  stageSceneName.textContent = track.sceneName;
+  stageSceneZh.textContent = track.sceneZh;
+  dossierScene.textContent = `SCENE ${pad(track.index)} / ${track.sceneName} · ${track.sceneZh}`;
+
+  sceneTransitionIndex.textContent = `SCENE ${pad(track.index)}`;
+  sceneTransitionName.textContent = track.sceneName;
+  sceneTransitionZh.textContent = track.sceneZh;
+  sceneTransitionCity.textContent = track.city;
+  sceneTransitionYear.textContent = track.year;
+  sceneTransitionLine.textContent = track.sceneLine;
+  sceneTransitionNumber.textContent = pad(track.index);
 
   laneElements.trackTitle.setAttribute('aria-label', track.title);
   laneElements.trackTitle.innerHTML = track.lines.map((line, lineIndex) => (
@@ -248,8 +275,23 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   scrollActiveSignal('smooth');
 
   if (state.entered) {
-    liveRegion.textContent = `已调至 ${track.year} ${track.city}，${track.title}`;
+    liveRegion.textContent = `已进入 ${track.year} ${track.city}，${track.sceneName}，${track.title}`;
   }
+}
+
+function playSceneTransition() {
+  if (!sceneTransition) return;
+  window.clearTimeout(sceneSlateTimer);
+  window.clearTimeout(sceneSlateDelay);
+  sceneTransition.classList.remove('is-active');
+  void sceneTransition.offsetWidth;
+
+  sceneSlateDelay = window.setTimeout(() => {
+    sceneTransition.classList.add('is-active');
+    sceneSlateTimer = window.setTimeout(() => {
+      sceneTransition.classList.remove('is-active');
+    }, 1480);
+  }, 120);
 }
 
 function scrollActiveSignal(behavior = 'smooth') {
@@ -280,6 +322,7 @@ function animateThemeChange() {
   site.classList.add('is-sweeping');
   mark.classList.add('is-switching');
   laneElements.stage.classList.add('is-entering');
+  playSceneTransition();
 
   state.switchTimer = window.setTimeout(() => {
     site.classList.remove('is-sweeping');
@@ -327,6 +370,8 @@ function handleAudioState(nextState, track) {
 
   if (!playing) {
     mark.style.setProperty('--bass', '0');
+    document.body.style.setProperty('--bass', '0');
+    document.body.style.setProperty('--energy', '0');
     field.setLevels({ bass: 0, mid: 0, high: 0, energy: 0 });
   }
 }
@@ -816,9 +861,13 @@ function startProgressLoop() {
 
       if (timestamp - state.lastProgressPaint > 33) {
         const levels = audio.playing ? audio.getLevels() : { bass: 0, mid: 0, high: 0, energy: 0 };
-        const visibleBass = reduceMotionQuery.matches ? 0 : levels.bass;
-        mark.style.setProperty('--bass', visibleBass.toFixed(4));
-        field.setLevels(reduceMotionQuery.matches ? { bass: 0, mid: 0, high: 0, energy: 0 } : levels);
+        const motionLevels = reduceMotionQuery.matches
+          ? { bass: 0, mid: 0, high: 0, energy: 0 }
+          : levels;
+        mark.style.setProperty('--bass', motionLevels.bass.toFixed(4));
+        document.body.style.setProperty('--bass', motionLevels.bass.toFixed(4));
+        document.body.style.setProperty('--energy', motionLevels.energy.toFixed(4));
+        field.setLevels(motionLevels);
         state.lastProgressPaint = timestamp;
       }
     }

@@ -75,6 +75,10 @@
   --spark-url: url("../assets/img/vct-spark.png");
   --grain-url: url("../assets/img/grain.webp");
 
+  /* live audio level, written once per visual frame */
+  --bass: 0;
+  --energy: 0;
+
   --accent: oklch(0.8 0.17 80);
   --accent-2: oklch(0.88 0.14 60);
   --accent-deep: oklch(0.3 0.08 55);
