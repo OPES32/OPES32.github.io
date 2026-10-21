@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>VCT / THE CHAMPIONS FREQUENCY</title>
-  <meta name="description" content="把 2021—2026 六届 VALORANT 全球冠军赛主题曲，调成同一个频率。六首歌，六个现场场景：猩红圣殿、焚城、断时、镜厅、弹时、日蚀。">
+  <meta name="description" content="把 2021—2026 六届 VALORANT 全球冠军赛主题曲，调成同一个频率。六首歌，六个现场，六位特工：REYNA、PHOENIX、KILLJOY、JETT、CHAMBER、SAGE。">
   <meta name="theme-color" content="#080604">
   <link rel="canonical" href="https://opes32.github.io/">
   <meta property="og:url" content="https://opes32.github.io/">
   <meta property="og:site_name" content="VCT / THE CHAMPIONS FREQUENCY">
   <meta property="og:title" content="VCT / THE CHAMPIONS FREQUENCY">
-  <meta property="og:description" content="Six anthems. Six cities. Six live scenes. One emblem. 2021—2026 VALORANT Champions Tour, staged.">
+  <meta property="og:description" content="Six anthems. Six agents. Six live scenes. One emblem. 2021—2026 VALORANT Champions Tour, staged.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://opes32.github.io/assets/img/og-cover.jpg">
   <meta property="og:image:width" content="1200">
@@ -18,14 +18,14 @@
   <meta property="og:image:alt" content="VCT / THE CHAMPIONS FREQUENCY — a golden VCT spark over an amber eclipse.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="VCT / THE CHAMPIONS FREQUENCY">
-  <meta name="twitter:description" content="Six anthems. Six cities. Six live scenes. One emblem.">
+  <meta name="twitter:description" content="Six anthems. Six agents. Six live scenes. One emblem.">
   <meta name="twitter:image" content="https://opes32.github.io/assets/img/og-cover.jpg">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/favicon.png">
   <link rel="preload" href="assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/space-grotesk-var.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/tokens.css">
-  <link rel="stylesheet" href="css/experience.css">
+  <link rel="stylesheet" href="css/tokens.css?v=20261021-agents">
+  <link rel="stylesheet" href="css/experience.css?v=20261021-agents">
 </head>
 <body class="is-gated" data-theme="2026" data-audio="idle">
   <a class="skip-link" href="#main">跳到主内容</a>
@@ -56,7 +56,7 @@
           <span class="gate__title-big">CHAMPIONS</span>
           <span class="gate__title-outline">FREQUENCY</span>
         </h1>
-        <p class="gate__lede">把六年的冠军赛，调成同一个频率。<br>六首歌，六个可切换的现场；这不是播放列表，是一台需要被启动的机器。</p>
+        <p class="gate__lede">把六年的冠军赛，调成同一个频率。<br>六首歌，六个现场，六位特工；这不是播放列表，是一台需要被启动的机器。</p>
 
         <ol class="gate__years" aria-label="六届全球冠军赛">
           <li><span>2021</span><span>DIE FOR YOU</span><span>BERLIN</span></li>
@@ -181,6 +181,8 @@
           <p id="stageIssue">SCENE 06 / SHANGHAI</p>
         </div>
 
+        <div class="agent-ghost" id="agentGhost" aria-hidden="true"></div>
+
         <span class="stage__year" id="stageYear" aria-hidden="true">2026</span>
 
         <div class="stage__visual">
@@ -217,6 +219,7 @@
             <span class="stage__scene-divider" aria-hidden="true"></span>
             <strong class="stage__scene-name" id="stageSceneName">TOTAL ECLIPSE</strong>
             <span class="stage__scene-zh" id="stageSceneZh">日蚀</span>
+            <span class="stage__agent" id="stageAgent">AGENT / SAGE</span>
           </p>
 
           <p class="stage__eyebrow">
@@ -260,6 +263,14 @@
             <p class="scene-transition__line" id="sceneTransitionLine">The sun goes out. The stage does not.</p>
           </div>
           <span class="scene-transition__index" id="sceneTransitionNumber" aria-hidden="true">06</span>
+          <div class="scene-transition__agent">
+            <img id="sceneTransitionAgentIcon" src="assets/agents/sage-icon.webp" alt="" width="64" height="64">
+            <div>
+              <span>AGENT LINK</span>
+              <strong id="sceneTransitionAgentName">SAGE</strong>
+              <small id="sceneTransitionAgentRole">SENTINEL / 哨卫</small>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -275,6 +286,19 @@
             <p class="dossier__city-zh" id="dossierCityZh">上海</p>
             <p class="dossier__coords" id="dossierCoords">31.2304° N / 121.4737° E</p>
             <p class="dossier__scene" id="dossierScene">SCENE 06 / TOTAL ECLIPSE · 日蚀</p>
+          </div>
+
+          <div class="agent-card" aria-label="本场关联特工">
+            <div class="agent-card__icon">
+              <img id="agentIcon" src="assets/agents/sage-icon.webp" alt="贤者 头像" width="64" height="64">
+            </div>
+            <div class="agent-card__copy">
+              <p class="agent-card__kick">AGENT LINK / 特工档案</p>
+              <p class="agent-card__name"><strong id="agentName">SAGE</strong><span id="agentZh">贤者</span></p>
+              <p class="agent-card__meta"><span id="agentRole">SENTINEL / 哨卫</span><span id="agentOrigin">CHINA / 中国</span></p>
+              <p class="agent-card__ult"><img id="agentUltimateIcon" src="assets/agents/sage-ultimate.webp" alt="" width="48" height="48"><span id="agentUltimate">RESURRECTION / 再起</span></p>
+              <p class="agent-card__line" id="agentLine">太阳熄了，她还守在这里。</p>
+            </div>
           </div>
 
           <p class="dossier__note" id="dossierNote">太阳熄灭了，场馆还亮着。Oli Sykes 和 Courtney LaPlante 把告别唱成万人大合唱，余烬在观众席上方停了很久。</p>
@@ -436,6 +460,6 @@
     </style>
   </noscript>
 
-  <script type="module" src="js/app.js"></script>
+  <script type="module" src="js/app.js?v=20261021-agents"></script>
 </body>
 </html>

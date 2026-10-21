@@ -1,6 +1,6 @@
-import { TRACKS, DEFAULT_TRACK_ID } from './data.js';
-import { AnthemAudio } from './audio.js';
-import { SignalField } from './visuals.js';
+import { TRACKS, DEFAULT_TRACK_ID } from './data.js?v=20261021-agents';
+import { AnthemAudio } from './audio.js?v=20261021-agents';
+import { SignalField } from './visuals.js?v=20261021-agents';
 
 const $ = (selector, scope = document) => scope.querySelector(selector);
 const $$ = (selector, scope = document) => [...scope.querySelectorAll(selector)];
@@ -91,10 +91,23 @@ const sceneTransitionCity = $('#sceneTransitionCity');
 const sceneTransitionYear = $('#sceneTransitionYear');
 const sceneTransitionLine = $('#sceneTransitionLine');
 const sceneTransitionNumber = $('#sceneTransitionNumber');
+const sceneTransitionAgentIcon = $('#sceneTransitionAgentIcon');
+const sceneTransitionAgentName = $('#sceneTransitionAgentName');
+const sceneTransitionAgentRole = $('#sceneTransitionAgentRole');
 const stageSceneNo = $('#stageSceneNo');
 const stageSceneName = $('#stageSceneName');
 const stageSceneZh = $('#stageSceneZh');
+const stageAgent = $('#stageAgent');
 const dossierScene = $('#dossierScene');
+const agentGhost = $('#agentGhost');
+const agentIcon = $('#agentIcon');
+const agentName = $('#agentName');
+const agentZh = $('#agentZh');
+const agentRole = $('#agentRole');
+const agentOrigin = $('#agentOrigin');
+const agentUltimate = $('#agentUltimate');
+const agentUltimateIcon = $('#agentUltimateIcon');
+const agentLine = $('#agentLine');
 
 const laneElements = {
   stage: $('#stage'),
@@ -132,6 +145,7 @@ const field = new SignalField(fieldCanvas, {
 let themeColorMeta = null;
 let sceneSlateTimer = 0;
 let sceneSlateDelay = 0;
+let agentVisualRequest = 0;
 
 function getTrack() {
   return TRACKS[state.currentIndex];
@@ -212,6 +226,7 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   stageSceneNo.textContent = `SCENE ${pad(track.index)}`;
   stageSceneName.textContent = track.sceneName;
   stageSceneZh.textContent = track.sceneZh;
+  stageAgent.textContent = `AGENT / ${track.agent.name}`;
   dossierScene.textContent = `SCENE ${pad(track.index)} / ${track.sceneName} · ${track.sceneZh}`;
 
   sceneTransitionIndex.textContent = `SCENE ${pad(track.index)}`;
@@ -221,6 +236,8 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   sceneTransitionYear.textContent = track.year;
   sceneTransitionLine.textContent = track.sceneLine;
   sceneTransitionNumber.textContent = pad(track.index);
+
+  renderAgent(track);
 
   laneElements.trackTitle.setAttribute('aria-label', track.title);
   laneElements.trackTitle.innerHTML = track.lines.map((line, lineIndex) => (
@@ -275,8 +292,48 @@ function renderTrack(index, { animate = false, updateHash = false } = {}) {
   scrollActiveSignal('smooth');
 
   if (state.entered) {
-    liveRegion.textContent = `已进入 ${track.year} ${track.city}，${track.sceneName}，${track.title}`;
+    liveRegion.textContent = `已进入 ${track.year} ${track.city}，${track.sceneName}，特工 ${track.agent.name}，${track.title}`;
   }
+}
+
+function renderAgent(track) {
+  const agent = track.agent;
+  const request = ++agentVisualRequest;
+  const portraitUrl = new URL(agent.portrait, document.baseURI).href;
+
+  document.body.dataset.agent = agent.key;
+  document.body.style.setProperty('--agent-accent', agent.color);
+  agentGhost.classList.remove('is-ready');
+  agentGhost.style.setProperty('--agent-portrait', 'none');
+
+  const portrait = new Image();
+  portrait.decoding = 'async';
+  portrait.onload = () => {
+    if (request !== agentVisualRequest) return;
+    agentGhost.style.setProperty('--agent-portrait', `url("${portraitUrl}")`);
+    agentGhost.classList.add('is-ready');
+  };
+  portrait.onerror = () => {
+    if (request === agentVisualRequest) agentGhost.classList.remove('is-ready');
+  };
+  portrait.src = portraitUrl;
+
+  agentIcon.src = new URL(agent.icon, document.baseURI).href;
+  agentIcon.alt = `${agent.zh} ${agent.name} 头像`;
+  agentUltimateIcon.src = new URL(agent.ultimateIcon, document.baseURI).href;
+  agentUltimateIcon.alt = '';
+
+  agentName.textContent = agent.name;
+  agentZh.textContent = agent.zh;
+  agentRole.textContent = `${agent.role} / ${agent.roleZh}`;
+  agentOrigin.textContent = `${agent.origin} / ${agent.originZh}`;
+  agentUltimate.textContent = `${agent.ultimate} / ${agent.ultimateZh}`;
+  agentLine.textContent = agent.lineZh;
+
+  sceneTransitionAgentIcon.src = new URL(agent.icon, document.baseURI).href;
+  sceneTransitionAgentIcon.alt = '';
+  sceneTransitionAgentName.textContent = agent.name;
+  sceneTransitionAgentRole.textContent = `${agent.role} / ${agent.roleZh}`;
 }
 
 function playSceneTransition() {

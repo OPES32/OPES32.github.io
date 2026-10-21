@@ -6,7 +6,7 @@
 **在线地址：** <https://opes32.github.io/>  
 **源码仓库：** <https://github.com/OPES32/OPES32.github.io>
 
-这不是一个「Hero + 卡片」式的音乐专题页，而是一台被拆开摆在桌面上的 VCT 广播仪器。开场点击接通信号后，2026 上海的主题曲《炽日将烬》立即开始播放；之后每一次换台，都会先切进一块专属的 **SCENE 卡片**，再进入完全不同的现场：颜色、空间、粒子、镜头呼吸、字号节奏和整份曲目档案一起切换。
+这不是一个「Hero + 卡片」式的音乐专题页，而是一台被拆开摆在桌面上的 VCT 广播仪器。开场点击接通信号后，2026 上海的主题曲《炽日将烬》立即开始播放；之后每一次换台，都会先切进一块专属的 **SCENE 卡片**，再进入完全不同的现场：颜色、空间、粒子、镜头呼吸、字号节奏和整份曲目档案一起切换。六个现场分别由六位特工把守：REYNA、PHOENIX、KILLJOY、JETT、CHAMBER、SAGE。特工立绘会化为现场的全息剪影，官方头像与终极技能进入右侧「AGENT LINK」档案卡。
 
 ![VCT / THE CHAMPIONS FREQUENCY — desktop console](./preview/console-2026.jpg)
 
@@ -74,6 +74,19 @@ $env:PORT=4180; node server.mjs
 
 每段音频来自官方 30 秒试听片段，并循环播放。页面上的波形不是装饰图，是从解码后的音频真实计算出的峰值。
 
+## 特工联动
+
+| 年份 | 特工 | 定位 | 终极技能 | 与现场的连接 |
+| --- | --- | --- | --- | --- |
+| 2021 | REYNA / 蕾娜 | DUELIST / 决斗者 | EMPRESS / 女皇 | 灵魂宝珠漂在猩红圣殿的灯束里，Leer 之眼在暗处睁开 |
+| 2022 | PHOENIX / 不死鸟 | DUELIST / 决斗者 | RUN IT BACK / 再燃 | 焚城火柱上展开火鸟的双翼，Phoenix 的全息剪影从火里站起来 |
+| 2023 | KILLJOY / 奇乐 | SENTINEL / 哨卫 | LOCKDOWN / 全面封锁 | 钟环变成 Lockdown 的读秒，炮台在舞台边缘扫描 |
+| 2024 | JETT / 捷风 | DUELIST / 决斗者 | BLADE STORM / 飓风刃 | 镜厅里有三把回旋的苦无，风痕穿过棱镜 |
+| 2025 | CHAMBER / 尚勃勒 | SENTINEL / 哨卫 | TOUR DE FORCE / 力转乾坤 | 金色卡牌悬在准星旁，一条细线直指最后的弹道 |
+| 2026 | SAGE / 贤者 | SENTINEL / 哨卫 | RESURRECTION / 再起 | 日蚀旁浮起贤者的玉色宝珠，复活环守着最后一点光 |
+
+特工立绘在舞台上以 **CSS alpha mask** 重新着色，变成与场景同频的全息人影；右侧「AGENT LINK」卡片使用官方头像与终极技能图标。六位特工分别对应六段声音的空间性格，而不是随机贴图。
+
 右侧「TRANSMISSION FILE」底部为每首主题曲保留了 **FULL TRACK / APPLE MUSIC** 入口，可以直接前往官方平台收听完整版。若要把完整版接入站内播放，见下方「换成完整母带」。
 
 ---
@@ -84,7 +97,7 @@ $env:PORT=4180; node server.mjs
    作为浏览器里的活体对象，它被切成三块碎片；换台时短暂裂开再合拢，低频驱动它的呼吸，外圈文字环一直缓慢旋转。
 
 2. **六年，不是六次换色，是六个现场。**
-   每个年份有自己的空间、材质、运动和叙事：2021 的猩红圣殿、2022 的焚城火柱、2023 的断时钟环、2024 的镜厅棱镜、2025 的弹时曳光、2026 的日蚀塌陷，全部由 Canvas 2D 实时生成，没有视频或第三方动画库。
+   每个年份有自己的空间、材质、运动和叙事：2021 的猩红圣殿、2022 的焚城火柱、2023 的断时钟环、2024 的镜厅棱镜、2025 的弹时曳光、2026 的日蚀塌陷，全部由 Canvas 2D 实时生成，没有视频或第三方动画库。每个现场还挂载一位特工：全息剪影、官方头像、终极技能和专属图形共同构成「英雄元素」，不是六张贴图轮播。
 
 3. **广播控制台，而不是歌单。**
    左栏是年份索引，中央是舞台与巨型曲名，右栏是「传输档案」，底部是真实的波形播放器。版式按大屏、平板、竖屏手机、横屏手机分别重排，而不是把桌面版简单缩小。
@@ -97,6 +110,9 @@ $env:PORT=4180; node server.mjs
 
 6. **克制但有记忆点的系统。**
    无卡片墙、无玻璃拟态、无紫蓝渐变、无假数据。字体只用 Anton / Space Grotesk / IBM Plex Mono，中文标题回到宋体系统字。大量信息使用发丝线、直角和微型标签组织。
+
+7. **六位特工，不是六张贴纸。**
+   每位特工都有自己的全息剪影、官方头像、定位、国籍和终极技能。立绘以 alpha mask 融进舞台灯光，技能图形进入 Canvas：Reyna 的灵魂宝珠、Phoenix 的火鸟、Killjoy 的炮台与 Lockdown、Jett 的苦无、Chamber 的金色卡牌、Sage 的玉色宝珠。英雄元素和音频、场景使用同一套切台节奏，不额外加一层装饰。
 
 ---
 
@@ -140,6 +156,7 @@ vct-frequency/
 │  └─ app.js              # 状态、播放器 UI、键盘、档案
 ├─ assets/
 │  ├─ audio/              # 官方 30 秒试听
+│  ├─ agents/             # 六位特工立绘 / 头像 / 终极技能图标（WebP）
 │  ├─ fonts/              # 本地 WOFF2
 │  └─ img/                # VCT spark、纹理、OG 图
 ├─ preview/               # 1440 / 390 / 844 截图
@@ -182,6 +199,7 @@ vct-frequency/
 - 入场点击后 `AudioContext` 正常启动，播放进度推进，`--bass` 实时变化（非静音占位）
 - 六次换台均触发 SCENE 卡片：编号 `01—06`、场景名、城市和年份与当前曲目一致；卡片退场后新场景、新标题和档案同步到位
 - 六个 Canvas 现场各自运行：RED CHAPEL 的玻璃与声呐、PYRE 的火柱与余烬、TIMEBREAK 的钟环与故障切片、CHROME PRISM 的棱镜与激光、BULLET TIME 的曳光与准星、TOTAL ECLIPSE 的日冕与熔岩裂缝
+- 六次换台的特工联动正确：REYNA / PHOENIX / KILLJOY / JETT / CHAMBER / SAGE 的头像、定位、国籍和终极技能与曲目一一对应；舞台全息剪影、AGENT LINK 卡片和 SCENE 卡片上的特工标签同步切换
 - 暂停 / 恢复 / 静音 / 键盘 `1`—`6` / `Space` / `A` 打开档案均通过；暂停时 `--bass` 归零
 - 六首音频均成功解码；无页面异常、无失败请求、无重复 `id`
 - `prefers-reduced-motion` 下 Canvas 渲染为静态帧；连续两次读取 Canvas 像素完全一致
@@ -193,6 +211,7 @@ vct-frequency/
 
 - VCT spark 标记：来自 VALORANT 官方赛事素材（[Tencent VALORANT 电竞站的 VCT SPARK 资源](https://esports.val.qq.com/val/VCT_SPARK_RGB_TEAL.png)），在项目里以 CSS mask 重新着色和拆分。VCT、VALORANT、Riot Games 及相关标识归 Riot Games 所有。
 - 音乐：Riot Games / VALORANT Music；试听片段来自 Apple Music 公开预览。
+- 特工素材：REYNA、PHOENIX、KILLJOY、JETT、CHAMBER、SAGE 的立绘、头像与终极技能图标来自 [valorant-api.com](https://valorant-api.com/)；在项目中经透明裁切、WebP 压缩与 CSS mask 再着色。特工与 VALORANT 相关素材版权归 Riot Games 所有。
 - 字体：Anton、Space Grotesk、IBM Plex Mono，SIL Open Font License 1.1；授权文本见 [`licenses/`](./licenses/)。
 - 本项目是独立粉丝概念，与 Riot Games 无隶属或背书关系。
 

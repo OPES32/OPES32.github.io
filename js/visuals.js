@@ -263,9 +263,206 @@ export class SignalField {
         break;
     }
 
+    this.drawAgentMotif();
     ctx.restore();
     this.drawReadability();
     this.drawScreenFlash();
+  }
+
+  drawAgentMotif() {
+    const { ctx, width: w, height: h, center: c } = this;
+    const min = Math.min(w, h);
+    const t = this.clock;
+    const agentColor = this.track?.agent?.color || this.colors.primary;
+    const ink = 'rgba(8, 5, 7, 0.42)';
+
+    ctx.save();
+    ctx.globalCompositeOperation = 'screen';
+
+    if (this.mode === 'dust') {
+      // Reyna: soul orbs and the Leer eye.
+      const orbit = min * 0.3;
+      for (let i = 0; i < 3; i += 1) {
+        const angle = t * 0.28 + i * (TAU / 3);
+        const x = c.x + Math.cos(angle) * orbit;
+        const y = c.y + Math.sin(angle) * orbit * 0.62;
+        const radius = min * (0.011 + this.beat * 0.003);
+        const orb = ctx.createRadialGradient(x, y, 0, x, y, radius * 4.4);
+        orb.addColorStop(0, hexToRgba(this.paper, 0.42));
+        orb.addColorStop(0.25, hexToRgba(agentColor, 0.32));
+        orb.addColorStop(1, hexToRgba(agentColor, 0));
+        ctx.fillStyle = orb;
+        ctx.beginPath();
+        ctx.arc(x, y, radius * 4.4, 0, TAU);
+        ctx.fill();
+        ctx.fillStyle = ink;
+        ctx.beginPath();
+        ctx.arc(x, y, radius * 0.6, 0, TAU);
+        ctx.fill();
+      }
+
+      const eyeX = c.x + min * 0.2;
+      const eyeY = c.y - min * 0.21;
+      ctx.strokeStyle = hexToRgba(agentColor, 0.3);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.ellipse(eyeX, eyeY, min * 0.034, min * 0.018, -0.14, 0, TAU);
+      ctx.stroke();
+      ctx.fillStyle = ink;
+      ctx.beginPath();
+      ctx.arc(eyeX, eyeY, min * 0.008, 0, TAU);
+      ctx.fill();
+    } else if (this.mode === 'ember') {
+      // Phoenix: a firebird with a long tail, beating over the pyre.
+      const bx = c.x;
+      const by = c.y - min * 0.23 + Math.sin(t * 0.7) * 7;
+      const span = min * 0.29;
+      const flap = Math.sin(t * 1.3) * min * 0.026;
+      const wing = ctx.createLinearGradient(bx - span, by, bx + span, by + min * 0.06);
+      wing.addColorStop(0, hexToRgba(agentColor, 0));
+      wing.addColorStop(0.3, hexToRgba(agentColor, 0.3));
+      wing.addColorStop(0.5, hexToRgba(this.paper, 0.34));
+      wing.addColorStop(0.72, hexToRgba(agentColor, 0.3));
+      wing.addColorStop(1, hexToRgba(agentColor, 0));
+      ctx.fillStyle = wing;
+      ctx.beginPath();
+      ctx.moveTo(bx, by + span * 0.1);
+      ctx.bezierCurveTo(bx - span * 0.24, by - span * 0.06 - flap, bx - span * 0.7, by - span * 0.18 - flap, bx - span, by + span * 0.02);
+      ctx.bezierCurveTo(bx - span * 0.56, by + span * 0.1, bx - span * 0.18, by + span * 0.17, bx, by + span * 0.23);
+      ctx.bezierCurveTo(bx + span * 0.18, by + span * 0.17, bx + span * 0.56, by + span * 0.1, bx + span, by + span * 0.02);
+      ctx.bezierCurveTo(bx + span * 0.7, by - span * 0.18 - flap, bx + span * 0.24, by - span * 0.06 - flap, bx, by + span * 0.1);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = hexToRgba(this.paper, 0.28);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(bx, by + span * 0.17);
+      ctx.quadraticCurveTo(bx - span * 0.1, by + span * 0.42, bx + Math.sin(t * 1.6) * span * 0.1, by + span * 0.68);
+      ctx.stroke();
+    } else if (this.mode === 'clock') {
+      // Killjoy: lockdown gauge and a small turret watching the room.
+      ctx.strokeStyle = hexToRgba(agentColor, 0.28);
+      ctx.lineWidth = 1;
+      for (let i = 0; i < 3; i += 1) {
+        const start = -t * 0.15 + i * 2.1;
+        ctx.beginPath();
+        ctx.arc(c.x, c.y, min * (0.34 + i * 0.025), start, start + 0.42);
+        ctx.stroke();
+      }
+
+      const tx = c.x - min * 0.33;
+      const ty = c.y + min * 0.23;
+      ctx.save();
+      ctx.translate(tx, ty);
+      ctx.strokeStyle = hexToRgba(agentColor, 0.42);
+      ctx.fillStyle = 'rgba(8, 12, 5, 0.6)';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.rect(-15, -10, 30, 20);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = hexToRgba(agentColor, 0.55);
+      ctx.beginPath();
+      ctx.arc(0, 0, 4.2 + this.beat * 1.4, 0, TAU);
+      ctx.fill();
+      ctx.strokeStyle = hexToRgba(agentColor, 0.4);
+      ctx.beginPath();
+      ctx.moveTo(-11, 10);
+      ctx.lineTo(-18, 18);
+      ctx.moveTo(0, 10);
+      ctx.lineTo(0, 20);
+      ctx.moveTo(11, 10);
+      ctx.lineTo(18, 18);
+      ctx.stroke();
+      ctx.restore();
+    } else if (this.mode === 'chrome') {
+      // Jett: three kunai in the mirror light.
+      for (let i = 0; i < 3; i += 1) {
+        const angle = t * 0.24 + i * (TAU / 3);
+        const x = c.x + Math.cos(angle) * min * 0.3;
+        const y = c.y + Math.sin(angle) * min * 0.2;
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(angle + Math.PI / 2);
+        ctx.fillStyle = hexToRgba(this.paper, 0.2);
+        ctx.strokeStyle = hexToRgba(agentColor, 0.35);
+        ctx.lineWidth = 0.8;
+        ctx.beginPath();
+        ctx.moveTo(0, -16);
+        ctx.lineTo(7, 0);
+        ctx.lineTo(0, 8);
+        ctx.lineTo(-7, 0);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillRect(-1.5, 8, 3, 9);
+        ctx.restore();
+      }
+      ctx.strokeStyle = hexToRgba(this.paper, 0.12);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, min * 0.36, -1.2 + t * 0.12, 0.4 + t * 0.12);
+      ctx.stroke();
+    } else if (this.mode === 'tracer') {
+      // Chamber: one gold card, one line, one shot.
+      const cardX = c.x - min * 0.31;
+      const cardY = c.y - min * 0.08;
+      ctx.save();
+      ctx.translate(cardX, cardY);
+      ctx.rotate(-0.16);
+      ctx.fillStyle = 'rgba(10, 8, 3, 0.66)';
+      ctx.strokeStyle = hexToRgba(agentColor, 0.65);
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.rect(-20, -30, 40, 60);
+      ctx.fill();
+      ctx.stroke();
+      ctx.strokeStyle = hexToRgba(agentColor, 0.32);
+      ctx.beginPath();
+      ctx.moveTo(0, -21);
+      ctx.lineTo(12, 0);
+      ctx.lineTo(0, 21);
+      ctx.lineTo(-12, 0);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+
+      const aim = ctx.createLinearGradient(cardX, cardY, c.x, c.y);
+      aim.addColorStop(0, hexToRgba(agentColor, 0.35));
+      aim.addColorStop(1, hexToRgba(agentColor, 0));
+      ctx.strokeStyle = aim;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(cardX + 18, cardY);
+      ctx.lineTo(c.x, c.y);
+      ctx.stroke();
+    } else {
+      // Sage: jade orbs and a resurrection ring.
+      for (let i = 0; i < 3; i += 1) {
+        const angle = -t * 0.22 + i * (TAU / 3);
+        const x = c.x + Math.cos(angle) * min * 0.3;
+        const y = c.y + Math.sin(angle) * min * 0.21;
+        const orb = ctx.createRadialGradient(x, y, 0, x, y, min * 0.045);
+        orb.addColorStop(0, hexToRgba(this.paper, 0.4));
+        orb.addColorStop(0.25, hexToRgba(agentColor, 0.32));
+        orb.addColorStop(1, hexToRgba(agentColor, 0));
+        ctx.fillStyle = orb;
+        ctx.beginPath();
+        ctx.arc(x, y, min * 0.045, 0, TAU);
+        ctx.fill();
+      }
+      ctx.strokeStyle = hexToRgba(agentColor, 0.24);
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, min * 0.36, -0.3 + t * 0.06, 1.1 + t * 0.06);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, min * 0.385, 2.4 - t * 0.04, 3.1 - t * 0.04);
+      ctx.stroke();
+    }
+
+    ctx.restore();
   }
 
   drawStatic() {

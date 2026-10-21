@@ -19,6 +19,19 @@
 
 项目只使用其 alpha 作为 CSS mask，视觉颜色由页面自身的 token 重新生成。VCT、VALORANT、Riot Games 及所有相关标识归 Riot Games 所有。此项目是独立粉丝概念，与 Riot Games 无隶属或背书关系。
 
+## 特工素材
+
+`assets/agents/` 中的特工立绘、头像与终极技能图标来自 VALORANT 公开数据接口 **valorant-api.com**，对应六位特工：
+
+- REYNA / 蕾娜
+- PHOENIX / 不死鸟
+- KILLJOY / 奇乐
+- JETT / 捷风
+- CHAMBER / 尚勃勒
+- SAGE / 贤者
+
+页面把特工立绘的 alpha 作为 CSS mask 重新着色为现场灯光，并在「AGENT LINK」档案卡里使用官方头像与终极技能图标。特工名称、立绘、技能图标及 VALORANT 相关素材版权归 Riot Games 所有。本项目是独立粉丝概念，与 Riot Games 无隶属或背书关系。
+
 ## 音乐
 
 `assets/audio/` 中六段 30 秒音频为官方公开试听片段的本地副本：
