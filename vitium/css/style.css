@@ -1794,7 +1794,9 @@ html.has-cursor textarea { cursor: text; }
   display: grid;
   place-items: center;
   margin: 0.6rem auto 0;
+  pointer-events: none;
 }
+.lust-orbit * { pointer-events: none; }
 .lust-halo {
   position: absolute;
   width: 46%;
